@@ -1,0 +1,30 @@
+
+<div class="block__article">
+    <div class="block block__centered page_wrapper">
+        
+        <div class="block__container slider" id="mediaSlider">
+
+            <div class="block__items">
+                {% for mediaItem in site.data.media %}
+                <div class="block__item">
+                    <h4>{{ mediaItem.title }}</h4>
+                    <p class="block__content">{{ mediaItem.description }}</p>
+                    <div class="block__footer">
+
+                        {% if mediaItem.profilePhoto %}
+                        <img src="{{ "assets/media/" | absolute_url }}{{ mediaItem.profilePhoto }}" alt="{{ mediaItem.author }}" />
+                        {% endif %}
+
+                        <p>
+                            <b>{{ mediaItem.author }}</b>
+                            <a href={{mediaItem.link}} alt={{mediaItem.title}} target="_blank" rel="noopener noreferrer">
+                                View on {{ mediaItem.publisher }}
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

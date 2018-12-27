@@ -1,0 +1,37 @@
+[
+    {
+      "title": "Towards Vasern Beta - Updates And Features",
+      "description": "Vasern project started 3 months ago, with a goal to be a fast data storage for React Native, be able to sync to remote servers and available for everyone.",
+      "link": "https://medium.com/vasern/vasern-a-fast-lightweight-and-open-source-data-storage-for-react-native-7fccff7506a1",
+      "author": "Hieu Nguyen",
+      "profilePhoto": "Hieu-Nguyen.png",
+      "publisher": "Vasern Blog"
+    },
+    {
+      "title": "Vasern : une base de données pour React native",
+      "description":
+        "React Native est un framework pour la création d'applications mobiles native dont la popularité connaît une croissance soutenue depuis ces 5 dernières années, mais dont les options de stockage disponibles sont assez limitées.",
+      "publisher": "Programmez",
+      "author": "Fredericmazue",
+      "link": "https://www.programmez.com/actualites/vasern-une-base-de-donnees-pour-react-native-28136",
+      "profilePhoto": "Eirini-Eleni.png"
+    },
+    {
+      "title": "New React Native tool coming your way — Vasern joins the party",
+      "description":
+        "The best tools are built by users who are determined to improve their workflow! The story behind the creation of Vasern, a brand new data storage for React Native.",
+      "link": "https://jaxenter.com/new-react-native-tool-vasern-150729.html",
+      "author": "Eirini-Eleni",
+      "publisher": "Jaxenter",
+      "profilePhoto": "Eirini-Eleni.png"
+    },
+    {
+      "title": "Vasern : une base de données pour React native",
+      "description":
+        "React Native bringt React aufs Mobilgerät. Mit Vasern steht nun die Beta-Version von einer neuen Data-Storage-Lösung für React Native zum Testen bereit, die die Library um einige Funktionen erweitern soll.",
+      "publisher": "Entwickler.de",
+      "author": "Ann-Cathrin Klose",
+      "profilePhoto": "ann-cathrin-klose.jpg",
+      "link": "https://entwickler.de/online/javascript/vasern-data-storage-react-native-579865402.html"
+    }
+  ]

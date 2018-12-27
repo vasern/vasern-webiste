@@ -1,0 +1,81 @@
+.slider {
+    scroll-behavior: smooth;
+}
+
+.slider__nav {
+    position: absolute;
+    > div {
+
+        padding: 1em;
+        width: 3em;
+        height: 3em;
+        display: inline-block;
+        
+        &:not(.sliderLocked):hover {
+            opacity: .8;
+        }
+
+        div {
+            transform: translateY(-16px) translateX(-5px)
+        }
+
+        span {
+            height: 5px;
+            width: 30px;
+            background: $bg;
+            display: inline-block;
+            border-radius: 3px;
+        }
+    }
+
+    .arrow-right {
+
+        position: absolute;
+        top: -180px;
+
+        @include phone() {
+            left: calc(100vw - 60px) !important;
+        }
+
+        span:first-child {
+            transform: rotate(45deg)
+        } 
+        span:nth-child(2) {
+            width: 28px;
+            transform: rotate(-45deg) translateY(-2px) translateX(2px);
+
+            @include tablet() {
+                transform: rotate(-45deg) translateY(-5px) translateX(4px);
+            }
+        }
+    }
+    
+    .arrow-left {
+
+        position: absolute;
+        top: -180px;
+        left: -1.6em;;
+
+        @include tablet() {
+            left: -50px;
+        }
+
+        span:first-child {
+            transform: rotate(-45deg)
+        }
+
+        span:nth-child(2) {
+            width: 28px;
+            transform: rotate(45deg) translateX(-2px) translateY(-4px);
+
+            @include tablet() {
+                transform: rotate(45deg) translateX(-5px) translateY(-6px);
+            }
+        }
+    }
+
+    .sliderLocked {
+        opacity: 0.1;
+    }
+    
+}
