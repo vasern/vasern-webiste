@@ -1,11 +1,12 @@
 @import "_colors";
-@import "_block";
 @import "_breakpoint";
+@import "_block";
 
 @import "_media";
 @import "_container";
 @import "_features";
 
+@import "_buttons";
 @import "_slider";
 // ::selection {
 //     color: $white;
@@ -15,6 +16,7 @@
 body {
     line-height: 1.6;
     font-family: 'NeueHass',-apple-system,BlinkMacSystemFont,Helvetica, sans-serif;
+    padding-bottom: unset;
 }
 
 .side-bar
@@ -205,10 +207,14 @@ a:not([class]):hover {
 
     .wrapper {
         max-width: 1000px;
-        margin: auto;
         padding: 10em 0 4em 0;
         display: flex;
         flex-direction: row;
+
+        @include tablet() {
+            margin: auto;
+            width: calc(100% - 6em);
+        }
 
         > div { 
             flex: 1;
@@ -236,10 +242,14 @@ a:not([class]):hover {
             margin: 2em;
             z-index: 1;
             overflow: unset;
-            width: 18em;
+            width: 14em;
 
             @include tablet() {
                 display: initial;
+            }
+
+            @include desktop() {
+                width: 18em;
             }
 
             path {
@@ -296,40 +306,6 @@ a:not([class]):hover {
     
 }
 
-.button-positive {
-    background: $positive;
-    padding: 1em 4em;
-    border-radius: 3px;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    transition: ease-in .2s;
-    display: inline-block;
-    cursor: pointer;
-
-    a {
-        color: $white;
-        text-transform: uppercase;
-        font-size: 16px;
-        font-weight: bold;
-    }
-
-    span {
-        margin-left: .4em;
-        transition: ease-in .2s;
-        display: inline-block;
-    }
-
-    &:hover {
-        // transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-
-        span {
-            transform: translateX(.1em);
-        }
-        a {
-            opacity: .8;
-        }
-    }
-}
 
 @-webkit-keyframes floating {
     0% {transform: translateY(0px)}
@@ -376,4 +352,99 @@ a:not([class]):hover {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+footer {
+    background: $bg;
+    color: $text;
+    padding: 1.4em 1em;
+
+    @include tablet() {
+        padding: 3.6em;
+    }
+
+    .copyright {
+        opacity: .6;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        align-items: center;
+        padding: 1.6em;
+
+        @include desktop() {
+            align-items: initial;
+            padding: initial;
+        }
+
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    .link-item {
+        margin-top: 1.4em;
+        border-top: 1px solid $line-lt;;
+        padding-top: 1em;
+        justify-content: flex-end;
+
+        a {
+            justify-content: center;
+        }
+    }
+
+    .block__flex {
+        flex-direction: column-reverse;
+
+        @include desktop() {
+            flex-direction: row;
+        }
+    }
+
+    a {
+        color: $text;
+    }
+}
+
+.link-item a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $text;
+    text-decoration: dashed;
+
+    .link-icon {
+        margin-right: .6em;
+    }
+
+    span {
+        border-bottom: 1px $grey-lt-100 dashed;
+    }
+
+    &.lg {
+        font-size: 1.2em;
+
+        @include tablet() {
+            font-size: 1.4em;
+        }
+
+        .link-icon {
+            width: 1em;
+        }
+    }
+}
+
+ol {
+    padding-inline-start: 1em;
+    @include tablet() {
+        padding-inline-start: initial;
+    }
+}
+
+.logo__lg {
+    width: 6em;
+}
+
+.no-img {
+    background: $line-dk;
 }

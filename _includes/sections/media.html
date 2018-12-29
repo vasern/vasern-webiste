@@ -13,6 +13,9 @@
 
                         {% if mediaItem.profilePhoto %}
                         <img src="{{ "assets/media/" | absolute_url }}{{ mediaItem.profilePhoto }}" alt="{{ mediaItem.author }}" />
+                        {% else %}
+                        <img src="{{ "assets/media/space.png" | absolute_url }}" class="no-img" alt="{{ mediaItem.author }}" />
+                        {% else %}
                         {% endif %}
 
                         <p>

@@ -1,0 +1,25 @@
+[{
+    "title": "Getting Started",
+    "items": [
+        { "title": "FAQ", "url": "faq" },
+        { "title": "Install", "url": "docs/install" },
+        { "title": "Quickstart", "url": "docs/quickstart" },
+        { "title": "Examples", "url": "docs/examples" }
+    ]
+}, {
+    "title": "Documentation",
+    "items": [
+        { "title": "API", "url": "api" },
+        { "title": "Collections", "url": "docs/collections" },
+        { "title": "Reads and Writes", "url": "docs/reads-and-writes" },
+        { "title": "Queries", "url": "docs/queries" }
+    ]
+}, {
+    "title": "Community",
+    "items": [
+        { "title": "Vasern's Blog", "url": "blog" },
+        { "title": "Github", "url": "https://github.com/vasern/vasern" },
+        { "title": "Twitter", "url": "https://twitter.com/vaserndb" },
+        { "title": "Slack Channel", "url": "https://join.slack.com/t/vasern/shared_invite/enQtNDU4NTk2MDI5OTcyLTRiYzRjZDI5YTAyMjlhYzg1YTdhNjFjZGNkODI1OTQwYzExZjA3NWRkYTY1MGE2ZjU0YzU3NzE2NzUwZmEwMjM" }
+    ]
+}]

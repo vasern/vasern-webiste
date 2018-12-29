@@ -14,17 +14,25 @@
     }
 
     .block__items {
-       white-space: nowrap;
-       padding: .5em;
+        white-space: nowrap;
+        padding: .5em;
+        margin: auto;
 
-       @include tablet() {
+        @include tablet() {
+            width: calc(100% - 4em);
+        }
+
+       @include desktop() {
            padding: unset;
+           width: 100%;
+           
        }
     }
 
     .block__item {
 
-        width: 300px;
+        width: 100%;
+        max-width: 300px;
         margin: 2em 1em;
         background: #fff;
         padding: 1em 1.5em;

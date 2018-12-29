@@ -1,0 +1,39 @@
+<footer>
+    <div class="page_wrapper block__flex">
+        
+        <div class="block__col-1 copyright">
+            <img class="logo__lg" src="{{ "assets/media/vasern-icon.svg" | absolute_url }}" alt="Vasern Icon" />
+            <span>© Vasern 2018</span>
+        </div>
+
+        <div class="block__col-3">
+            <ul class="list__vertical list__recursive__style">
+                {% for node in site.data.footer_links %}
+
+                    <li>
+                        <label>{{ node.title }}</label>
+                        <ul>
+                            {% for item in node.items %}
+                                <li>
+                                    {% if item.url contains "http" %} 
+                                        <a href="{{ item.url }}" target="_blank" rel="noreferer" title="{{ item.title }}">{{ item.title }}</a>
+                                    {% else %}
+                                        <a href="{{ item.url | absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
+                                    {% endif %}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+            
+    <div class="link-item page_wrapper">
+        <a class="lg" href="//github.com/vasern/vasern">
+            <img class="link-icon" src="{{ "assets/media/github-logo.svg" | absolute_url }}" alt="Github link" />
+            <span>Star this project on Github</span>
+        </a>
+    </div>
+</footer>

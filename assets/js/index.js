@@ -1,4 +1,5 @@
 function displayIconCard(cardClass) {
+
   if (( el = document.querySelector(`.${cardClass}`) )) {
     el.classList.add("card-active");
     setTimeout(() => {
@@ -20,7 +21,9 @@ function attachEvent(names) {
   for (let name of names) {
     let el = document.getElementById(name.layerId);
     el.addEventListener("mouseover", ev => {
-      displayIconCard(name.cardId);
+      setTimeout(() => {
+        displayIconCard(name.cardId);
+      }, 200);
     });
     el.addEventListener("mouseleave", ev => {
       hideIconCard(name.cardId);

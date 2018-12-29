@@ -24,8 +24,8 @@
             </p>
 
             <div class="panel">
-              <span class="button-positive">
-                <a>Getting Started <span>→</span></a>
+              <span class="button btn__positive btn__shadow">
+                <a>Getting Started</a>
               </span>
             </div>
           </div>
@@ -73,12 +73,18 @@
         <!-- <img class="header-bg" src="{{ "assets/media/header-bg.svg" | absolute_url }}"> -->
       </div>
 
-      {% include _features.html %}
+      {% include sections/features.html %}
 
-      {% include _media.html %}
+      {% include sections/media.html %}
 
+      {% include sections/code.html %}
+
+
+  {% include sections/footer.html %}
       </div>
     </div>
+
+
   </div>
 
   <script type="text/javascript" src="{{ "/assets/js/slider.js" | absolute_url }}"></script>

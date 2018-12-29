@@ -20,14 +20,14 @@ $screen-xl-min: 1200px;
  }
  
  // Medium devices
- @mixin phone-h {
+ @mixin tablet {
     @media (min-width: #{$screen-md-min}) {
         @content;
     }
  }
  
  // Large devices
- @mixin tablet {
+ @mixin tablet-lg {
     @media (min-width: #{$screen-lg-min}) {
         @content;
     }

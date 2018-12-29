@@ -3,7 +3,7 @@
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
 layout: home
-title: Home
+title: "Vasern: an open source database for React Native"
 nav_exclude: true
 ---
 

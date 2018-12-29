@@ -10,7 +10,7 @@ function createElement(tagName, options) {
     var element = document.createElement(tagName);
 
     if (options) {
-        let { children, onClick, className, styles } = options;
+        let { children, onClick, className, styles, innerText, ...rest } = options;
         if (children) {
             
             if (Array.isArray(children)) {
@@ -30,6 +30,16 @@ function createElement(tagName, options) {
 
         if (styles) {
             element.setAttribute('style', styles);
+        }
+
+        if (innerText) {
+            element.innerText = innerText;
+        }
+
+        if (rest) {
+            for (let prop in rest) {
+                element.setAttribute(prop, rest[prop]);
+            }
         }
     }
 
@@ -92,7 +102,7 @@ function initSlider(element) {
             children: [createElement("span"), createElement("span")]
         }),
         className: 'arrow-right',
-        styles: `left: ${element.clientWidth}px`,
+        // styles: `left: ${element.clientWidth}px`,
         onClick: (ev) => {
 
             if (index < totalItems) {
@@ -113,4 +123,45 @@ function initSlider(element) {
     element.appendChild(navElement)
 }
 
-initSlider(document.getElementById("mediaSlider"));
+function togglePageSlider(sectionName) {
+    
+    if (( activeItem = document.querySelector('.page__slider__button_active') )) {
+        activeItem.classList.remove('page__slider__button_active');
+        document.querySelector(`.page__slider .block__item.active`)
+            .classList.remove('active')
+    }
+    
+
+    if (( item = document.querySelector(`label[for=${sectionName}]`) )) {
+        item.classList.add('page__slider__button_active');
+        document.querySelector(`.page__slider .block__item[name=${sectionName}]`)
+            .classList.add('active')
+    }
+}
+
+function initPageSlider(element) {
+
+    var items = element.querySelectorAll('.block__item');
+    var navElement = createElement('div', {
+        className: 'page__slider_nav block__centered'
+    })
+    items.forEach(item => {
+        var navChildEl = createElement('label', {
+            for: item.attributes.name.value,
+            innerText: item.attributes.label.value,
+            className: item.classList.contains('active') ? 'page__slider__button_active' : false,
+            onClick: (ev) => {
+                togglePageSlider(
+                    item.attributes.name.value
+                );
+            }
+        })
+
+        navElement.appendChild(navChildEl);
+    });
+    
+    element.insertBefore(navElement, element.firstElementChild);
+}
+
+initSlider(document.querySelector("#mediaSlider"));
+initPageSlider(document.querySelector(".page__slider"))
