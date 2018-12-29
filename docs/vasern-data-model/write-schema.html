@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title> - Vasern</title>
+  <title>Write Schema, Setup Vasern - Vasern</title>
   <link rel="stylesheet" href="https://vasern.com/assets/css/just-the-docs.css">
   
   <script type="text/javascript" src="https://vasern.com/assets/js/vendor/lunr.min.js"></script>
@@ -31,7 +31,7 @@
 
             
               
-            <a href="https://vasern.com/404.html" class="navigation-list-link active"></a>
+            <a href="https://vasern.com/404.html" class="navigation-list-link"></a>
             
           </li>
         
@@ -137,7 +137,7 @@
     
       
         
-          <li class="navigation-list-item active parent ">
+          <li class="navigation-list-item active active parent ">
             
 
             
@@ -184,9 +184,9 @@
                   
                 
                   
-                    <li class="navigation-list-item ">
+                    <li class="navigation-list-item  active">
                       
-                      <a href="https://vasern.com/docs/vasern-data-model/write-schema.html" class="navigation-list-link">Write Schema, Setup Vasern</a>
+                      <a href="https://vasern.com/docs/vasern-data-model/write-schema.html" class="navigation-list-link active">Write Schema, Setup Vasern</a>
                       
                     </li>
                   
@@ -402,28 +402,106 @@
       <div class="main-content">
         
           
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="https://vasern.com/docs/vasern-data-model/vasern-data-model.html">Vasern Data Model</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Write Schema, Setup Vasern</span></li>
+              </ol>
+            </nav>
+          
         
         <div class="page-content">
-          <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <p>Schemas are required to help <code class="highlighter-rouge">Document</code>s define its properties data type and validate records.
+The following information will help you to start writing schema for <code class="highlighter-rouge">Document</code>s,
+and create <code class="highlighter-rouge">Vasern</code> instance.</p>
 
-<div class="container">
-  <h1>404</h1>
+<h2 id="write-schema">Write schema</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<hr />
+
+<p>There are a quick method and a detailed method to write a schema. Use the detailed method if you need extra functions for your <code class="highlighter-rouge">Document</code>.</p>
+
+<h4 id="quick-method">Quick method</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">TodoSchema</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Todos"</span><span class="p">,</span>
+    <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
+        <span class="na">note</span><span class="p">:</span> <span class="s2">"?string"</span><span class="p">,</span>
+        <span class="na">completed</span><span class="p">:</span> <span class="s2">"boolean"</span>
+    <span class="p">},</span>
+    <span class="na">assignTo</span><span class="p">:</span> <span class="s2">"#Users"</span>
+<span class="p">};</span>
+
+</code></pre></div></div>
+
+<h4 id="detailed-method">Detailed method</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">UserModel</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Users"</span>
+    <span class="nx">props</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">fname</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
+        <span class="na">lname</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
+        <span class="na">email</span><span class="p">:</span> <span class="s2">"?string"</span>
+    <span class="p">}</span>
+
+    <span class="nx">getRandomUser</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="c1">// Get a random index within a range of 0 to length of records;</span>
+        <span class="kd">var</span> <span class="nx">userIndex</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">length</span><span class="p">());</span>
+
+        <span class="c1">// Document method that return a record</span>
+        <span class="c1">// using index or record's id</span>
+        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">object</span><span class="p">(</span><span class="nx">userIndex</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="create-vasern-instance">Create Vasern instance</h2>
+
+<hr />
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Vasern</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="props-object-include">Props (Object) include</h4>
+
+<ul>
+  <li><strong><em>props.schemas (Array&lt;Object&gt;)</em></strong>: a list of <code class="highlighter-rouge">Document</code> schema in any order.</li>
+  <li><strong><em>props.version (int)</em></strong>: version of <code class="highlighter-rouge">Document</code>, <code class="highlighter-rouge">1</code> by default.</li>
+</ul>
+
+<h4 id="example">Example</h4>
+
+<p>We already created <code class="highlighter-rouge">TodoSchema</code> and <code class="highlighter-rouge">UserModel</code> above. Let’s create a <code class="highlighter-rouge">Vasern</code> instance</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vasern</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">VasernDB</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vasern</span><span class="p">({</span>
+    <span class="na">schemas</span><span class="p">:</span> <span class="p">[</span><span class="nx">UserModel</span><span class="p">,</span> <span class="nx">TodoSchema</span><span class="p">],</span>
+    <span class="na">version</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="access-document">Access Document</h2>
+
+<hr />
+
+<p><code class="highlighter-rouge">Document</code>s are now initiated, and accessible through <code class="highlighter-rouge">VasernDB</code> using its <code class="highlighter-rouge">name</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Either</span>
+<span class="kd">var</span> <span class="nx">todoList</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">Todos</span><span class="p">.</span><span class="nx">data</span><span class="p">();</span>
+
+<span class="c1">// or</span>
+<span class="kd">const</span> <span class="p">{</span> <span class="nx">Todos</span><span class="p">,</span> <span class="nx">Users</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">userList</span> <span class="o">=</span> <span class="nx">Users</span><span class="p">.</span><span class="nx">data</span><span class="p">();</span>
+</code></pre></div></div>
+
+<h1 id="whats-next">What’s next?</h1>
+
+<p>Learn about <a href="basic-crud-operations.md">basic CRUD operations</a> or <a href="todo-example.md">see examples</a></p>
 
 
           

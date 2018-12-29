@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title> - Vasern</title>
+  <title>Queries - Vasern</title>
   <link rel="stylesheet" href="https://vasern.com/assets/css/just-the-docs.css">
   
   <script type="text/javascript" src="https://vasern.com/assets/js/vendor/lunr.min.js"></script>
@@ -31,7 +31,7 @@
 
             
               
-            <a href="https://vasern.com/404.html" class="navigation-list-link active"></a>
+            <a href="https://vasern.com/404.html" class="navigation-list-link"></a>
             
           </li>
         
@@ -230,12 +230,12 @@
     
       
         
-          <li class="navigation-list-item">
+          <li class="navigation-list-item active">
             
 
             
               
-            <a href="https://vasern.com/docs/queries.html" class="navigation-list-link">Queries</a>
+            <a href="https://vasern.com/docs/queries.html" class="navigation-list-link active">Queries</a>
             
           </li>
         
@@ -404,26 +404,131 @@
           
         
         <div class="page-content">
-          <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <p>Queries are used to get and filter records through a <code class="highlighter-rouge">Queryable</code> object. Which uses <code class="highlighter-rouge">lodash</code> to work with <code class="highlighter-rouge">Array</code> records. The following contents are a list of available query methods.</p>
 
-<div class="container">
-  <h1>404</h1>
+<h2 id="work-with-queryable">Work with Queryable</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<p><code class="highlighter-rouge">Queryable</code> contains a set of immutable records and separated from the Document records. The following code demonstrates how to create a <code class="highlighter-rouge">Queryable</code> object.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">Queryable</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">queryObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Queryable</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="get-record">Get record</h2>
+
+<p>Find and return a record that match with <code class="highlighter-rouge">lookupQuery</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Queryable</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**_lookupQuery ( string</td>
+          <td>Object )_**</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>(string): match record id with <code class="highlighter-rouge">string</code> value</li>
+      <li>(Object): match record properties and values with <code class="highlighter-rouge">Object</code> properties and values</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="return">Return</h4>
+
+<ul>
+  <li><strong><em>Object</em></strong>: object that match with <strong><em>lookupQuery</em></strong></li>
+  <li><strong><em>undefined</em></strong> if not found</li>
+</ul>
+
+<h4 id="example">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">foundRecord</span> <span class="o">=</span> <span class="nx">Queryable</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">id</span><span class="p">:</span> <span class="s2">"5bc592cacdAsassfs000ddddBBdbcdfb"</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="filter-records">Filter records</h2>
+
+<p>Find and return a list of records that match with <code class="highlighter-rouge">lookupQuery</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Queryable</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments-1">Arguments</h4>
+
+<ul>
+  <li><strong><em>lookupQuery ( Object )</em></strong>: match record properties and values with <code class="highlighter-rouge">Object</code> properties and values</li>
+</ul>
+
+<h4 id="return-1">Return</h4>
+
+<ul>
+  <li><strong><em>Array&lt;Object&gt;</em></strong>: a list of records that match with <strong><em>lookupQuery</em></strong></li>
+</ul>
+
+<h4 id="example-1">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">records</span> <span class="o">=</span> <span class="nx">Queryable</span><span class="p">.</span><span class="nx">filter</span><span class="p">({</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="exclude-records">Exclude records</h2>
+
+<p>Excludes records that match with <code class="highlighter-rouge">lookupQuery</code> from current Queryable dataset.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Queryable</span><span class="p">.</span><span class="nx">exclude</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments-2">Arguments</h4>
+
+<ul>
+  <li><strong><em>lookupQuery ( Object )</em></strong>: match record properties and values with <code class="highlighter-rouge">Object</code> properties and values</li>
+</ul>
+
+<h4 id="return-2">Return</h4>
+
+<ul>
+  <li><strong><em>Array&lt;Object&gt;</em></strong>: a list of records that match with <strong><em>lookupQuery</em></strong></li>
+</ul>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">records</span> <span class="o">=</span> <span class="nx">Queryable</span><span class="p">.</span><span class="nx">exclude</span><span class="p">({</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="order-records">Order records</h2>
+
+<p>Re-order records list by <code class="highlighter-rouge">key</code>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Queryable</span><span class="p">.</span><span class="nx">order</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">asc</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments-3">Arguments</h4>
+
+<ul>
+  <li><strong><em>key ( string )</em></strong>: property name</li>
+  <li><strong><em>asc (boolean)</em></strong>: allow order ascending, set to <code class="highlighter-rouge">false</code> for decending order.</li>
+</ul>
+
+<h4 id="return-3">Return</h4>
+
+<ul>
+  <li><strong><em>Array&lt;Object&gt;</em></strong>: a list of reorderd records</li>
+</ul>
+
+<h4 id="example-3">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">records</span> <span class="o">=</span> <span class="nx">Queryable</span><span class="p">.</span><span class="nx">filter</span><span class="p">({</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h1 id="whats-next">What’s next?</h1>
+
+<p>Learn about <a href="/docs/event-listeners.html">Event listeners</a></p>
 
 
           

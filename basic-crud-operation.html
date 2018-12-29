@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+  <title>Basic CRUD operations - Vasern</title>
+  <link rel="stylesheet" href="https://vasern.com/assets/css/just-the-docs.css">
+  
+  <script type="text/javascript" src="https://vasern.com/assets/js/vendor/lunr.min.js"></script>
+  
+  <script type="text/javascript" src="https://vasern.com/assets/js/just-the-docs.js"></script>
+  <link rel="shortcut icon" href="https://vasern.com/assets/media/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+  <div class="page-wrap top">
+    <div class="side-bar">
+      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+      <div class="navigation main-nav js-main-nav">
+        <nav>
+  <ul class="navigation-list">
+    
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+
+            
+              
+            <a href="https://vasern.com/404.html" class="navigation-list-link"></a>
+            
+          </li>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <li class="navigation-list-item active parent ">
+            
+
+            
+
+              <a class="navigation-list-link">Getting Started</a>
+              
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/getting-started/overview.html" class="navigation-list-link">Overview</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/getting-started/quick-start.html" class="navigation-list-link">One Minute Quickstart</a>
+                      
+                    </li>
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/getting-started/install-vasern.html" class="navigation-list-link">Installation</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active parent ">
+            
+
+            
+
+              <a class="navigation-list-link">Vasern Data Model</a>
+              
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/vasern-data-model/vasern-collection.html" class="navigation-list-link">Collection</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/vasern-data-model/supported-data-types.html" class="navigation-list-link">Data Types</a>
+                      
+                    </li>
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/vasern-data-model/write-schema.html" class="navigation-list-link">Write Schema, Setup Vasern</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active">
+            
+
+            
+              
+            <a href="https://vasern.com/basic-crud-operation" class="navigation-list-link active">Basic CRUD operations</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+
+            
+              
+            <a href="https://vasern.com/docs/queries.html" class="navigation-list-link">Queries</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+
+            
+              
+            <a href="https://vasern.com/docs/event-listeners.html" class="navigation-list-link">Event Listeners</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item">
+            
+
+            
+              
+            <a href="https://vasern.com/docs/support-and-feedback.html" class="navigation-list-link">Support and Feedback</a>
+            
+          </li>
+        
+      
+    
+      
+        
+          <li class="navigation-list-item active parent ">
+            
+
+            
+
+              <a class="navigation-list-link">Examples</a>
+              
+              
+              <ul class="navigation-list-child-list ">
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    <li class="navigation-list-item ">
+                      
+                      <a href="https://vasern.com/docs/examples/todo-example.html" class="navigation-list-link">Example - Vasern Todo</a>
+                      
+                    </li>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+              </ul>
+            
+          </li>
+        
+      
+    
+  </ul>
+</nav>
+
+      </div>
+      <footer role="contentinfo" class="site-footer">
+       
+      </footer>
+    </div>
+    <div class="main-content-wrap">
+
+      
+      <div class="page-header">
+            <div class="side-bar">
+  
+              <a href="https://vasern.com" class="site-title fs-6 lh-tight">
+                <img class="page-logo" src="https://vasern.com/assets/media/vasern-icon.svg" alt="https://vasern.com" />  
+                Vasern
+              </a>
+            </div>
+          <div class="main-content">
+            
+              <ul class="list-style-none regular-text mt-md-1 mb-md-1 pb-4 pb-md-0 js-aux-nav aux-nav">
+                
+
+                    
+                        <li class="d-inline-block my-0 mr-2"><a href="/blog">Blog</a></li>
+                    
+
+                
+
+                    
+                        <li class="d-inline-block my-0 mr-2"><a href="/docs/examples.html">Examples</a></li>
+                    
+
+                
+
+                    
+                        <li class="d-inline-block my-0 mr-2"><a href="/api">API</a></li>
+                    
+
+                
+
+                    
+                        <li class="d-inline-block my-0 mr-2"><a href="/docs">Documentation</a></li>
+                    
+
+                
+
+                    
+                        <li class="d-inline-block my-0">
+                          <a href="//github.com/vasern/vasern"github-logo" rel="noreferer" target="_blank">
+                            <img class="link-icon" src="https://vasern.com/assets/media//github-logo.svg" />
+                          </a>
+                        </li>
+                    
+
+                
+              </ul>
+            
+          </div>
+
+          <!-- SEARCH -->
+          
+          <div class="search js-search">
+            <div class="search-input-wrap">
+              <input type="text" class="js-search-input search-input" placeholder="Search Vasern" aria-label="Search Vasern" autocomplete="off">
+              <svg width="16" height="16" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="search-icon"><title>Search</title><g fill="#fff" fill-rule="nonzero"><path d="M17.332 20.735c-5.537 0-10-4.6-10-10.247 0-5.646 4.463-10.247 10-10.247 5.536 0 10 4.601 10 10.247s-4.464 10.247-10 10.247zm0-4c3.3 0 6-2.783 6-6.247 0-3.463-2.7-6.247-6-6.247s-6 2.784-6 6.247c0 3.464 2.7 6.247 6 6.247z"/><path d="M11.672 13.791L.192 25.271 3.02 28.1 14.5 16.62z"/></g></svg>
+            </div>
+            <div class="js-search-results search-results-wrap"></div>
+          </div>
+          
+        </div>
+      <div class="main-content">
+        
+          
+        
+        <div class="page-content">
+          <p>CRUD shorts for create (insert), read (get), update, delete (remove) - basic database operations.
+The following contents will explain how to use CRUD on Vasern.</p>
+
+<p>Note: Use <a href="#perform-multiple-operations"><code class="highlighter-rouge">perform</code></a> for multiple operations</p>
+
+<p>Let’s use <code class="highlighter-rouge">VasernDB</code> in <code class="highlighter-rouge">Todo use case</code> example created in <a href="write-schema-setup-vasern.md">Write Schema, Setup Vasern</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">Todos</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h2 id="insert-method">Insert method</h2>
+
+<p>Inserting new records into <code class="highlighter-rouge">Document</code></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Todos</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">newRecords</span><span class="p">,</span> <span class="nx">save</span> <span class="o">=</span> <span class="kc">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**_newRecord (Object</td>
+          <td>Array&lt;Object&gt;)_**: new record/records data</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li><strong><em>save (boolean)</em></strong>: allow Document to write record to disk right away. If set to <code class="highlighter-rouge">false</code>, Document won’t write record to disk right away and add to commited transaction list.</li>
+</ul>
+
+<h4 id="return">Return</h4>
+
+<ul>
+  <li><strong><em>Array&lt;Object&gt;</em></strong>: a list of created records (indicate executing insert process)</li>
+</ul>
+
+<h4 id="example">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">item1</span> <span class="o">=</span> <span class="nx">Todos</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Setup database for React Native"</span><span class="p">,</span>
+    <span class="na">note</span><span class="p">:</span> <span class="s2">"Using Vasern"</span><span class="p">,</span>
+    <span class="na">completed</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">})[</span><span class="mi">0</span><span class="p">];</span>
+</code></pre></div></div>
+
+<h2 id="get-method">Get method</h2>
+
+<p>Document use <a href="queries#Queryable">Queryable</a> object to work with records. Which use <code class="highlighter-rouge">lodash</code> to provide other queries such as <code class="highlighter-rouge">include</code>, <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">filter</code>, <code class="highlighter-rouge">exclude</code>, etc.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Todos</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments-1">Arguments</h4>
+
+<ul>
+  <li><strong><em>lookupQuery ( string, Object )</em></strong>
+    <ul>
+      <li>(string): match record id with <code class="highlighter-rouge">string</code> value</li>
+      <li>(Object): match record properties and values with <code class="highlighter-rouge">Object</code> properties and values</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="return-1">Return</h4>
+
+<ul>
+  <li><strong><em>Object</em></strong>: object that match with <strong><em>lookupQuery</em></strong></li>
+  <li><strong><em>undefined</em></strong> if not found</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">todoItem</span> <span class="o">=</span> <span class="nx">Todos</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Setup database for React Native"</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="update-method">Update method</h2>
+
+<p>Update existing record with new valuse</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Todos</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">,</span> <span class="nx">newValues</span><span class="p">,</span> <span class="nx">save</span> <span class="o">=</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="arguments-2">Arguments</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**_lookupQuery ( string</td>
+          <td>Object )_**</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>(string): record id</li>
+      <li>(Object): record object <em>that contains <code class="highlighter-rouge">id</code></em></li>
+    </ul>
+  </li>
+  <li><strong><em>save (boolean)</em></strong>: allow Document to write record to disk right away. If set to <code class="highlighter-rouge">false</code>, Document won’t write record to disk right away and add to commited transaction list.</li>
+</ul>
+
+<h4 id="return-2">Return</h4>
+
+<ul>
+  <li><strong><em>Object</em></strong>: indicates record is found, and execute update process</li>
+  <li><strong><em>false</em></strong> if item not found</li>
+</ul>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">item1</span> <span class="o">=</span> <span class="nx">Todos</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Setup database for React Native"</span> <span class="p">});</span>
+<span class="nx">Todos</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">item1</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="remove-method">Remove method</h2>
+
+<p>Remove an existing record from Document’s records</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Todos</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">lookupQuery</span><span class="p">,</span> <span class="nx">save</span> <span class="o">=</span> <span class="kc">true</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="arguments-3">Arguments</h4>
+
+<ul>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>**_lookupQuery ( string</td>
+          <td>Object )_**</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>(string): record id</li>
+      <li>(Object): record object <em>that contains <code class="highlighter-rouge">id</code></em></li>
+    </ul>
+  </li>
+  <li><strong><em>save (boolean)</em></strong>: allow Document to write record to disk right away. If set to <code class="highlighter-rouge">false</code>, Document won’t write record to disk right away and add to commited transaction list.</li>
+</ul>
+
+<h4 id="return-3">Return</h4>
+
+<ul>
+  <li><strong><em>boolean</em></strong>: indicate record is found, and execute remove process</li>
+</ul>
+
+<h4 id="example-3">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">item1</span> <span class="o">=</span> <span class="nx">Todos</span><span class="p">.</span><span class="kd">get</span><span class="p">({</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Setup database for React Native"</span> <span class="p">});</span>
+<span class="nx">Todos</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">item1</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h2 id="perform-multiple-operations">Perform multiple operations</h2>
+
+<hr />
+
+<p>This method commits multiple operations and write all at once. Which optimize for performance.</p>
+
+<p>Note: Don’t use <code class="highlighter-rouge">Todos.insert</code>, <code class="highlighter-rouge">Todos.remove</code> or <code class="highlighter-rouge">Todos.update</code> in <strong><em>callback</em></strong> block as it will
+create a separate write process.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">callback</span><span class="p">(</span><span class="nx">db</span><span class="p">:</span> <span class="p">{</span> <span class="nx">insert</span><span class="p">,</span> <span class="nx">update</span><span class="p">,</span> <span class="nx">remove</span><span class="p">,</span> <span class="kd">get</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="c1">// Execute operations</span>
+<span class="p">}</span>
+
+<span class="nx">Todos</span><span class="p">.</span><span class="nx">perform</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="arguments-4">Arguments</h4>
+
+<ul>
+  <li><strong><em>callback ( Function ): ({ insert, update, remove, get })</em></strong>: execution <strong><em>callback</em></strong> block.
+    <ul>
+      <li><strong><em>insert</em></strong> is a version of <a href="#insert-method">Insert method</a> with <code class="highlighter-rouge">save = false</code></li>
+      <li><strong><em>get</em></strong> is a version of <a href="#get-method">Get method</a></li>
+      <li><strong><em>remove</em></strong> is a version of <a href="#remove-method">Remove method</a> with <code class="highlighter-rouge">save = false</code></li>
+      <li><strong><em>update</em></strong> is a version of <a href="#update-method">Update method</a> with <code class="highlighter-rouge">save = false</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="return-4">Return</h4>
+
+<ul>
+  <li>No returning value</li>
+</ul>
+
+<h4 id="example-4">Example</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Todos</span><span class="p">.</span><span class="nx">perform</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">db</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Remove all completed items </span>
+    <span class="c1">// and update incompleted item to completed</span>
+    <span class="nx">Todos</span><span class="p">.</span><span class="nx">data</span><span class="p">().</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">completed</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">db</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">db</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">item</span><span class="p">,</span> <span class="p">{</span> <span class="na">completed</span><span class="p">:</span> <span class="kc">true</span> <span class="p">})</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h1 id="whats-next">What’s next?</h1>
+
+<p>Learn about <a href="/docs/queries.html">Queries</a> 
+or <a href="examples.md">see examples</a></p>
+
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</html>

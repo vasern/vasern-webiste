@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title> - Vasern</title>
+  <title>Collection - Vasern</title>
   <link rel="stylesheet" href="https://vasern.com/assets/css/just-the-docs.css">
   
   <script type="text/javascript" src="https://vasern.com/assets/js/vendor/lunr.min.js"></script>
@@ -31,7 +31,7 @@
 
             
               
-            <a href="https://vasern.com/404.html" class="navigation-list-link active"></a>
+            <a href="https://vasern.com/404.html" class="navigation-list-link"></a>
             
           </li>
         
@@ -137,7 +137,7 @@
     
       
         
-          <li class="navigation-list-item active parent ">
+          <li class="navigation-list-item active active parent ">
             
 
             
@@ -166,9 +166,9 @@
                   
                 
                   
-                    <li class="navigation-list-item ">
+                    <li class="navigation-list-item  active">
                       
-                      <a href="https://vasern.com/docs/vasern-data-model/vasern-collection.html" class="navigation-list-link">Collection</a>
+                      <a href="https://vasern.com/docs/vasern-data-model/vasern-collection.html" class="navigation-list-link active">Collection</a>
                       
                     </li>
                   
@@ -402,28 +402,30 @@
       <div class="main-content">
         
           
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="https://vasern.com/docs/vasern-data-model/vasern-data-model.html">Vasern Data Model</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Collection</span></li>
+              </ol>
+            </nav>
+          
         
         <div class="page-content">
-          <style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
+          <p>This page will explain Vasern, Document to give you a brief understanding.</p>
 
-<div class="container">
-  <h1>404</h1>
+<h2 id="vasern">Vasern</h2>
 
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
-</div>
+<p><code class="highlighter-rouge">Vasern</code> data storage itself is a linked <code class="highlighter-rouge">Document</code>s. Vasern object manages <code class="highlighter-rouge">Document</code>s, ensure their states and consistency. Currently, <code class="highlighter-rouge">Vasern</code> provides methods that help to get data across <code class="highlighter-rouge">Document</code>s.</p>
+
+<h2 id="document">Document</h2>
+
+<p>Underneath, each <code class="highlighter-rouge">Document</code> is a list of sequential key-value storage engine. It operates separately and links with other <code class="highlighter-rouge">Document</code>s by a reference id (like the foreign key).</p>
+
+<h1 id="whats-next">What’s next?</h1>
+
+<p>Learn about <a href="install-vasern.md">Vasern installation</a></p>
 
 
           

@@ -1,12 +1,128 @@
----
----
 {
-  {% for page in site.html_pages %}"{{ forloop.index0 }}": {
-    "id": "{{ forloop.index0 }}",
-    "title": "{{ page.title | xml_escape }}",
-    "content": "{{ page.content | markdownify | strip_html | xml_escape | remove: 'Table of contents' | strip_newlines | replace: '\', ' ' }}",
-    "url": "{{ page.url | absolute_url | xml_escape }}",
-    "relUrl": "{{ page.url | xml_escape }}"
-  }{% if forloop.last %}{% else %},
-  {% endif %}{% endfor %}
+  "0": {
+    "id": "0",
+    "title": "",
+    "content": "  404  Page not found :(  The requested page could not be found.",
+    "url": "https://vasern.com/404.html",
+    "relUrl": "/404.html"
+  },
+  "1": {
+    "id": "1",
+    "title": "API",
+    "content": "",
+    "url": "https://vasern.com/api.html",
+    "relUrl": "/api.html"
+  },
+  "2": {
+    "id": "2",
+    "title": "Basic CRUD operations",
+    "content": "CRUD shorts for create (insert), read (get), update, delete (remove) - basic database operations.The following contents will explain how to use CRUD on Vasern.Note: Use perform for multiple operationsLet’s use VasernDB in Todo use case example created in Write Schema, Setup Vasern.const { Todos } = VasernDB;Insert methodInserting new records into DocumentTodos.insert(newRecords, save = true)Arguments                              **_newRecord (Object          Array&amp;lt;Object&amp;gt;)_**: new record/records data                      save (boolean): allow Document to write record to disk right away. If set to false, Document won’t write record to disk right away and add to commited transaction list.Return  Array&amp;lt;Object&amp;gt;: a list of created records (indicate executing insert process)Examplevar item1 = Todos.insert({    name: &quot;Setup database for React Native&quot;,    note: &quot;Using Vasern&quot;,    completed: false})[0];Get methodDocument use Queryable object to work with records. Which use lodash to provide other queries such as include, find, filter, exclude, etc.Todos.get(lookupQuery)Arguments  lookupQuery ( string, Object )          (string): match record id with string value      (Object): match record properties and values with Object properties and values      Return  Object: object that match with lookupQuery  undefined if not foundExamplevar todoItem = Todos.get({ name: &quot;Setup database for React Native&quot; });Update methodUpdate existing record with new valuseTodos.update(lookupQuery, newValues, save = true);Arguments                              **_lookupQuery ( string          Object )_**                            (string): record id      (Object): record object that contains id        save (boolean): allow Document to write record to disk right away. If set to false, Document won’t write record to disk right away and add to commited transaction list.Return  Object: indicates record is found, and execute update process  false if item not foundExamplevar item1 = Todos.get({ name: &quot;Setup database for React Native&quot; });Todos.update(item1.id, { completed: true });Remove methodRemove an existing record from Document’s recordsTodos.remove(lookupQuery, save = true);Arguments                              **_lookupQuery ( string          Object )_**                            (string): record id      (Object): record object that contains id        save (boolean): allow Document to write record to disk right away. If set to false, Document won’t write record to disk right away and add to commited transaction list.Return  boolean: indicate record is found, and execute remove processExamplevar item1 = Todos.get({ name: &quot;Setup database for React Native&quot; });Todos.remove(item1);Perform multiple operationsThis method commits multiple operations and write all at once. Which optimize for performance.Note: Don’t use Todos.insert, Todos.remove or Todos.update in callback block as it willcreate a separate write process.function callback(db: { insert, update, remove, get }) {    // Execute operations}Todos.perform(callback);Arguments  callback ( Function ): ({ insert, update, remove, get }): execution callback block.          insert is a version of Insert method with save = false      get is a version of Get method      remove is a version of Remove method with save = false      update is a version of Update method with save = false      Return  No returning valueExampleTodos.perform(function(db) {    // Remove all completed items     // and update incompleted item to completed    Todos.data().forEach(function(item) {        if (item.completed) {            db.remove(item)        } else {            db.update(item, { completed: true })        }    })})What’s next?Learn about Queries or see examples",
+    "url": "https://vasern.com/basic-crud-operation",
+    "relUrl": "/basic-crud-operation"
+  },
+  "3": {
+    "id": "3",
+    "title": "Blogs",
+    "content": "",
+    "url": "https://vasern.com/blog.html",
+    "relUrl": "/blog.html"
+  },
+  "4": {
+    "id": "4",
+    "title": "Event Listeners",
+    "content": "Event listeners are callback functions that subscribe to a Document’s event(including loaded, insert, update, delete). Each time an event happen,it will automatically execute callback functions that was subsribed to that eventThe following content are event listeners that available to Vasern.  onAvailable  onLoaded  onInsert  onUpdate  onRemove  onChangeonAvailable eventonAvailable is triggered when the app started, and raw records is loaded from Vasern’s native module.Note: raw records are in the raw form, which has id and raw properties. Use onLoaded if you need normal recordsDocument.onAvailable(callback)Arguments  callback ( Function ): callback function when data is available in raw formExample// Assuming Todos is a Document instanceTodos.onAvailable(() =&amp;gt; {        // Notify user number of records    alert(`Loading ${Todos.count()} items`)})onLoaded eventonLoaded is triggered when raw records are converted to normal record objects.Document.onLoaded(callback)Arguments  callback ( Function ): callback function when data is loaded completelyExample// Assuming Todos is a Document instanceTodos.onLoaded(() =&amp;gt; {        // Display incompleted items to users    this.setState({         items: Todos.filter({ completed: false }).data(),    });})onInsert eventonInsert is triggered after a record or muliple records are inserted and saved to the Document.Callback function will receive a list of new records.Document.onLoaded(callback)Arguments  callback ( Function: { changed } ): callback function when records are inserted          changed ( Array[object] ): a list of records has just inserted      Example// Assuming Todos is a Document instanceTodos.onInsert(({ changed }) =&amp;gt; {        // Log number of inserted records    console.log(changed.length);})onUpdate eventonUpdate is triggered after a record or muliple records are updated and saved to the Document.Callback function will receive a list of updated records.Document.onUpdate(callback)Arguments  callback ( Function: { changed } ): callback function when records are updated          changed ( Array[object] ): a list of records has been updated      Example// Assuming Todos is a Document instanceTodos.onUpdate(({ changed }) =&amp;gt; {        // Log number of updated records    console.log(changed.length);})onRemove eventonRemove is triggered after a record or muliple records are removed from the Document.Callback function will receive a list of removed records.Document.onRemove(callback)Arguments  callback ( Function: { changed } ): callback function when records are removed          changed ( Array[object] ): a list of removed records has been removed      Example// Assuming Todos is a Document instanceTodos.onRemove(({ changed }) =&amp;gt; {        // Log number of removed records    console.log(changed.length);})onChange eventonChange is triggered after any of the above event is triggered from the Document. In other words,it captured all events. Callback function will receive an event name and a list of affected records.Document.onChange(callback)Arguments  callback ( Function: { event, changed } ): callback function when an event is triggered          event ( string ): name of the event that was triggered      changed ( Array[object] ): a list of affected records      Example// Assuming Todos is a Document instanceTodos.onChange(({ changed }) =&amp;gt; {        // Log triggered event and number of records that was affected    console.log(event, &quot;was triggered that affects&quot;, changed.length, &quot;records&quot;);})What’s next?Visit Support and Feedback for contribution, ask for help or give us feedback.If you have gone this far, and have read information provided, we’d like to thank you for your intests in Vasern. We have some examples in case you want some more.P/s: Don’t hesitate to start to build your dream app!",
+    "url": "https://vasern.com/docs/event-listeners.html",
+    "relUrl": "/docs/event-listeners.html"
+  },
+  "5": {
+    "id": "5",
+    "title": "Examples",
+    "content": "",
+    "url": "https://vasern.com/docs/examples",
+    "relUrl": "/docs/examples"
+  },
+  "6": {
+    "id": "6",
+    "title": "Getting Started",
+    "content": "",
+    "url": "https://vasern.com/docs",
+    "relUrl": "/docs"
+  },
+  "7": {
+    "id": "7",
+    "title": "Vasern: an open source database for React Native",
+    "content": "Hi there",
+    "url": "https://vasern.com/",
+    "relUrl": "/"
+  },
+  "8": {
+    "id": "8",
+    "title": "Installation",
+    "content": "Vasern is available on Android and iOS. The following steps will help you install Vasern into your React Native project.Install VasernMake sure you have created React Native app. Navigate to React Native directory, and be ready to run commands on Terminal (MacOS) or Command Promp (Window).1. Install using NPM:$ npm install --save vasern2. Link Vasern library to your project:      Automatic linking - for iOS and Android, run command:      $ react-native link vasern        Manually - for iOS: (Vasern does not support install via Cocoapods)                  Browse to “node_packages/vasern/vasern/ios”, and drag “Vasern.xcodeproj” to “Libraries” directory on your project in XCode.                    Add “libVasern.a” to “Build Phase” &amp;gt; “Link Binary with Libraries”                  Manual linking - for Android:                  Open file android/app/build.gradle from your android main app directory, add vasern dependency:         dependencies { +   compile project(':vasern')     implementation fileTree(dir: &quot;libs&quot;, include: [&quot;*.jar&quot;])     implementation &quot;com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}&quot;     implementation &quot;com.facebook.react:react-native:+&quot;  // From node_modules }                            Open file android/setting.gradle         include ':app' + include ':vasern' + project(':vasern').projectDir = new File(rootProject.projectDir, '../node_modules/vasern/android')                            Open android/app/src/main/java/com/your-app-name/MainApplication.java, add the RNVasernPackage dependency.         // Add this line after &quot;import android.app.Application;&quot; + import com.ambistudio.vasern.RNVasernPackage; // Add &quot;new RNVasernPackage()&quot; in &quot;getPackages()&quot; method @Override protected List&amp;lt;ReactPackage&amp;gt; getPackages() {     return Arrays.&amp;lt;ReactPackage&amp;gt;asList(         new MainReactPackage(),     +    new RNVasernPackage()     ); }                    3. Close Metro Bundle, rebuild and restart project.What’s next?Learn about Supported Data Types or start Writing Schema.",
+    "url": "https://vasern.com/docs/getting-started/install-vasern.html",
+    "relUrl": "/docs/getting-started/install-vasern.html"
+  },
+  "9": {
+    "id": "9",
+    "title": "Overview",
+    "content": "OverviewVasern is a data storage for React Native, focus on performance, and consistency. Our goal is to develop an open source, developer friendly, database sync solution.This documentation will walk you through Vasern installation, work with schema,basic operations, and provide with examples.Please let us know if you found a typo, incorrect or unclear information in this document.Note: Vasern alpha is now available for experimental, subscribe to Vasern on Github for any update",
+    "url": "https://vasern.com/docs/getting-started/overview.html",
+    "relUrl": "/docs/getting-started/overview.html"
+  },
+  "10": {
+    "id": "10",
+    "title": "Queries",
+    "content": "Queries are used to get and filter records through a Queryable object. Which uses lodash to work with Array records. The following contents are a list of available query methods.Work with QueryableQueryable contains a set of immutable records and separated from the Document records. The following code demonstrates how to create a Queryable object.import { Queryable } from 'vasern';const queryObj = new Queryable(data);Get recordFind and return a record that match with lookupQuery.Queryable.get(lookupQuery)Arguments                              **_lookupQuery ( string          Object )_**                            (string): match record id with string value      (Object): match record properties and values with Object properties and values      Return  Object: object that match with lookupQuery  undefined if not foundExamplevar foundRecord = Queryable.get({ id: &quot;5bc592cacdAsassfs000ddddBBdbcdfb&quot; });Filter recordsFind and return a list of records that match with lookupQuery.Queryable.filter(lookupQuery)Arguments  lookupQuery ( Object ): match record properties and values with Object properties and valuesReturn  Array&amp;lt;Object&amp;gt;: a list of records that match with lookupQueryExamplevar records = Queryable.filter({ completed: true });Exclude recordsExcludes records that match with lookupQuery from current Queryable dataset.Queryable.exclude(lookupQuery)Arguments  lookupQuery ( Object ): match record properties and values with Object properties and valuesReturn  Array&amp;lt;Object&amp;gt;: a list of records that match with lookupQueryExamplevar records = Queryable.exclude({ completed: true });Order recordsRe-order records list by key.Queryable.order(key, asc = true)Arguments  key ( string ): property name  asc (boolean): allow order ascending, set to false for decending order.Return  Array&amp;lt;Object&amp;gt;: a list of reorderd recordsExamplevar records = Queryable.filter({ completed: true });What’s next?Learn about Event listeners",
+    "url": "https://vasern.com/docs/queries.html",
+    "relUrl": "/docs/queries.html"
+  },
+  "11": {
+    "id": "11",
+    "title": "One Minute Quickstart",
+    "content": "One Minute Quickstart",
+    "url": "https://vasern.com/docs/getting-started/quick-start.html",
+    "relUrl": "/docs/getting-started/quick-start.html"
+  },
+  "12": {
+    "id": "12",
+    "title": "Support and Feedback",
+    "content": "For any issues, bugs found, or ask for help and contribution, feel free to file an issue and we will try to help as soon as we can.For discusion and quick chat, join our Slack channel. You can send an email to .If you love us, we’d be super excited if you share Vasern on your twitter, facebook or any social platform with hashtag #vaserndb. Also, follow us on Twitter",
+    "url": "https://vasern.com/docs/support-and-feedback.html",
+    "relUrl": "/docs/support-and-feedback.html"
+  },
+  "13": {
+    "id": "13",
+    "title": "Data Types",
+    "content": "Data types are used to define property’s type when writting Document schema.Currently, Vasern supports:  Basic data types includes string, int, double, datetime, and reference using # followed by schema’s name.  Each type also has its characteristic optional using &quot;?&quot;, and list using &quot;[]&quot;To help you better understand about using data types in the schema, we will use Todo use case as an example. Then explains about data types used.Todo use caseFor now, we will only focus about the schema definition props in this example.const TodoSchema = {    name: &quot;Todos&quot;,    props: {        name: &quot;string&quot;,        note: &quot;?string&quot;,        notifyOn: &quot;?datetime&quot;,        completed: &quot;boolean&quot;,        parent: &quot;#Todos&quot;,        assignedTo: &quot;[]#User&quot;    }}Basic data typesIn the above example, basic data types are:  string, used by name, note  datetime, used by notifyOn  boolean, used by completed  # indicate reference, used by parent and assignedTo.Type characteristic  ? indicates optional, which allow value to be undefined, used by note, and notifyOn.  [] indicates list, which contains a list of basic types, used by assignedToNote: Do not provide optional for list, as a list length starts from 0What’s nextLearn how to write schema and create Vasern instance",
+    "url": "https://vasern.com/docs/vasern-data-model/supported-data-types.html",
+    "relUrl": "/docs/vasern-data-model/supported-data-types.html"
+  },
+  "14": {
+    "id": "14",
+    "title": "Example - Vasern Todo",
+    "content": "This example implements a simple todo list app using Vasern as data storage and React Native. It demonstrates basic CRUD operations of Vasern (get, insert, update, delete data).Features  Add, delete todo item  Add, delete sub todo itemDemoInstallation  Clone or download Vasern from Github repository into your computer.      Navigate to examples/vasern-todo and run command from :          Install npm dependencies, (1-3 mins)          $ npm install            Link Vasern using rnpm, or follow instruction on our main “README.md” file          $ rnpm link vasern              Run project.          For iOS, Signing certificate then run the app on your simulator using xCode Project locate at “examples/vasern-todo/ios” or using command react-native run-ios.      For Android, run command react-native run-android.      Other libraries used in this example  react-native-spacer - a keyboard avoding wrapper.Troubleshooting      React Native 0.57 on Android, java.lang.String cannot be cast to com.facebook.... View solution        In some cases, try to clear caches (and on Android, remove android/build and android/.gradle).  ",
+    "url": "https://vasern.com/docs/examples/todo-example.html",
+    "relUrl": "/docs/examples/todo-example.html"
+  },
+  "15": {
+    "id": "15",
+    "title": "Collection",
+    "content": "This page will explain Vasern, Document to give you a brief understanding.VasernVasern data storage itself is a linked Documents. Vasern object manages Documents, ensure their states and consistency. Currently, Vasern provides methods that help to get data across Documents.DocumentUnderneath, each Document is a list of sequential key-value storage engine. It operates separately and links with other Documents by a reference id (like the foreign key).What’s next?Learn about Vasern installation",
+    "url": "https://vasern.com/docs/vasern-data-model/vasern-collection.html",
+    "relUrl": "/docs/vasern-data-model/vasern-collection.html"
+  },
+  "16": {
+    "id": "16",
+    "title": "Vasern Data Model",
+    "content": "This page will explain Vasern, Document to give you a brief understanding.VasernVasern data storage itself is a linked Documents. Vasern object manages Documents, ensure their states and consistency. Currently, Vasern provides methods that help to get data across Documents.DocumentUnderneath, each Document is a list of sequential key-value storage engine. It operates separately and links with other Documents by a reference id (like the foreign key).What’s next?Learn about Vasern installation",
+    "url": "https://vasern.com/docs/vasern-data-model/vasern-data-model.html",
+    "relUrl": "/docs/vasern-data-model/vasern-data-model.html"
+  },
+  "17": {
+    "id": "17",
+    "title": "Write Schema, Setup Vasern",
+    "content": "Schemas are required to help Documents define its properties data type and validate records.The following information will help you to start writing schema for Documents,and create Vasern instance.Write schemaThere are a quick method and a detailed method to write a schema. Use the detailed method if you need extra functions for your Document.Quick methodvar TodoSchema = {    name: &quot;Todos&quot;,    props: {        name: &quot;string&quot;,        note: &quot;?string&quot;,        completed: &quot;boolean&quot;    },    assignTo: &quot;#Users&quot;};Detailed methodclass UserModel {    name = &quot;Users&quot;    props = {        fname: &quot;string&quot;,        lname: &quot;string&quot;,        email: &quot;?string&quot;    }    getRandomUser() {        // Get a random index within a range of 0 to length of records;        var userIndex = Math.floor(Math.random() * this.length());        // Document method that return a record        // using index or record's id        return this.object(userIndex);    }}Create Vasern instancenew Vasern(props)Props (Object) include  props.schemas (Array&amp;lt;Object&amp;gt;): a list of Document schema in any order.  props.version (int): version of Document, 1 by default.ExampleWe already created TodoSchema and UserModel above. Let’s create a Vasern instanceimport Vasern from 'vasern';const VasernDB = new Vasern({    schemas: [UserModel, TodoSchema],    version: 1})Access DocumentDocuments are now initiated, and accessible through VasernDB using its name// Eithervar todoList = VasernDB.Todos.data();// orconst { Todos, Users } = VasernDB;var userList = Users.data();What’s next?Learn about basic CRUD operations or see examples",
+    "url": "https://vasern.com/docs/vasern-data-model/write-schema.html",
+    "relUrl": "/docs/vasern-data-model/write-schema.html"
+  }
 }
