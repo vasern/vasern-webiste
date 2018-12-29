@@ -66,12 +66,15 @@
         font-weight: 400;
         margin-bottom: 1em;
         padding-top: 1em;
-        font-size: 18px;
+        font-size: 16px !important;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        text-transform: unset;
+        letter-spacing: 0;
+        line-height: 1.4em;
     }
 
     .block__item .block__content {
@@ -80,10 +83,10 @@
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         overflow: hidden;
         margin: 1.6em 0;
-        height: 6em;
+        height: 5.4em;
     }
 
     .block__item .block__footer {

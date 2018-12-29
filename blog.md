@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: blog
 id: blog
 title: Blogs
 nav_exclude: true

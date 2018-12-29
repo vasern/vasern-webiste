@@ -16,7 +16,7 @@
                             {% for item in node.items %}
                                 <li>
                                     {% if item.url contains "http" %} 
-                                        <a href="{{ item.url }}" target="_blank" rel="noreferer" title="{{ item.title }}">{{ item.title }}</a>
+                                        <a href="{{ item.url }}" target="_blank" rel="noreferrer" title="{{ item.title }}">{{ item.title }}</a>
                                     {% else %}
                                         <a href="{{ item.url | absolute_url }}" title="{{ item.title }}">{{ item.title }}</a>
                                     {% endif %}
@@ -32,7 +32,7 @@
             
     <div class="link-item page_wrapper">
         <a class="lg" href="//github.com/vasern/vasern">
-            <img class="link-icon" src="{{ "assets/media/github-logo.svg" | absolute_url }}" alt="Github link" />
+            <img class="link-icon" src="{{ "assets/media/github-logo.svg" | absolute_url }}" alt="Github Icon" />
             <span>Star this project on Github</span>
         </a>
     </div>
