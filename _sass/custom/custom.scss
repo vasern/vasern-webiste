@@ -8,17 +8,18 @@
 
 @import "_buttons";
 @import "_slider";
-// ::selection {
-//     color: $white;
-//     background: $bg !important;
-// }
+
 
 body {
     line-height: 1.6;
     font-family: 'NeueHass',-apple-system,BlinkMacSystemFont,Helvetica, sans-serif;
-    padding-bottom: unset;
+    padding-bottom: unset !important;
 }
 
+a {
+    text-decoration: none !important;
+    background-image: unset !important;
+}
 .side-bar
 ,.site-title
 ,.site-footer {
@@ -26,7 +27,7 @@ body {
 }
 
 .page-wrap > .side-bar {
-    position: fixed;
+    // position: fixed;
     z-index: 2;
 }
 
@@ -39,7 +40,7 @@ body {
     font-weight: unset;
 }
 .navigation-list-child-list .navigation-list-item::before {
-    content: " ";
+    content: " " !important;
 }
 .navigation-list-child-list {
     border-left: 1px dashed $grey-lt-400;
@@ -56,7 +57,7 @@ body {
     width: 100%;
     // background: $grey-dk-300 ;//$white;
     z-index: 999;
-    background: rgba(38, 50, 56, .94);//$bg;
+    background-color: rgba(38, 50, 56, .94) !important;//$bg;
 
     .side-bar, .site-title {
         background-color: transparent;
@@ -123,7 +124,7 @@ body {
 
 .regular-text {
     font-size: 13px;
-    display: flex;
+    display: flex !important;
     align-items: center;
 
     a {
@@ -164,7 +165,12 @@ a:not([class]):hover {
 
     .page-wrap, .main-content-wrap {
         overflow-x: unset;
-        overflow-y: unset;
+        overflow-y: unset !important;
+    }
+
+    .page-wrap, .main-content-wrap {
+        position: relative !important;
+        min-height: calc(100vh - 380px);
     }
 }
 
@@ -173,28 +179,31 @@ a:not([class]):hover {
     font-weight: bold;
 }
 
+.page-header .main-content {
+    border-bottom: unset !important;
+}
+
 @media (min-width: 72rem) {
     .page-header .main-content {
         margin-right: calc((100% - 1032px) / 2 + 232px);
     }
 
     .search {
-        width: calc((100% - 1032px) / 2 + 232px);
+        width: calc((100% - 1032px) / 2 + 232px) !important;
         min-width: 232px;
         height: 60px;
     }
 }
 
-// SEACH
+// SEARCH
 .search  {
-    // background: $grey-lt-100;
-    position: absolute;
+    position: absolute !important;
     top: 0;
     right: 0;
     align-items: center;
-    display: flex;
-    border-radius: unset;
-    padding: 0 1.6em;
+    display: flex !important;
+    border-radius: unset !important;
+    padding: 0 1.6em !important;
 }
 
 // index

@@ -17,12 +17,16 @@
         border-radius: unset;
     }
 
-    .highlight pre {
+    .highlight {
         padding: 2em;
         background: #f5f6fa;
         border: 1px solid #eeebee;
         border-radius: 3px;
         margin-top: 1.4em;
+
+        pre {
+            margin: unset;
+        }
     }
 }
 
@@ -53,11 +57,15 @@
 
     @include tablet() {
         flex-direction: row;
+
+        > li:not(:first-child) {
+            margin-left: 2em !important;
+        }
     }
+
     > li {
         flex: 1;
         margin: unset;
-        margin-left: 2em;
     }
 
     ul {
