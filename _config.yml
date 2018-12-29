@@ -48,6 +48,9 @@ aux_links:
     - //github.com/vasern/vasern"
     - "github-logo"
 
+destination: ../master
+collections_dir: .
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.

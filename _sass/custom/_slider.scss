@@ -47,7 +47,7 @@
         } 
         span:nth-child(2) {
             width: 28px;
-            transform: rotate(-45deg) translateY(-2px) translateX(2px);
+            transform: rotate(-45deg) translateY(-2px) translateX(2px) !important;
 
             @include tablet() {
                 transform: rotate(-45deg) translateY(-5px) translateX(4px);
@@ -75,7 +75,7 @@
 
         span:nth-child(2) {
             width: 28px;
-            transform: rotate(45deg) translateX(-2px) translateY(-4px);
+            transform: rotate(45deg) translateX(-2px) translateY(-4px) !important;
 
             @include tablet() {
                 transform: rotate(45deg) translateX(-5px) translateY(-6px);
