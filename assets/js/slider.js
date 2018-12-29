@@ -134,7 +134,7 @@ function togglePageSlider(sectionName) {
 
     if (( item = document.querySelector(`label[for=${sectionName}]`) )) {
         item.classList.add('page__slider__button_active');
-        document.querySelector(`.page__slider .block__item[name=${sectionName}]`)
+        document.querySelector(`.page__slider .block__item[data-name=${sectionName}]`)
             .classList.add('active')
     }
 }
@@ -147,12 +147,12 @@ function initPageSlider(element) {
     })
     items.forEach(item => {
         var navChildEl = createElement('label', {
-            for: item.attributes.name.value,
-            innerText: item.attributes.label.value,
+            for: item.dataset.name,
+            innerText: item.dataset.label,
             className: item.classList.contains('active') ? 'page__slider__button_active' : false,
             onClick: (ev) => {
                 togglePageSlider(
-                    item.attributes.name.value
+                    item.dataset.name
                 );
             }
         })
