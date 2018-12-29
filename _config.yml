@@ -49,11 +49,10 @@ aux_links:
     - "github-logo"
 
 destination: ../master
-collections_dir: .
 include: ['CNAME']
 collections:
-  posts:
-    output : true
+  blog:
+    output: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

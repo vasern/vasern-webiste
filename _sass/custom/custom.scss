@@ -8,7 +8,7 @@
 
 @import "_buttons";
 @import "_slider";
-
+@import "_blog";
 
 body {
     line-height: 1.6;
@@ -141,7 +141,6 @@ a {
 }
 
 .regular-text {
-    font-size: 13px;
     display: flex !important;
     align-items: center;
 
@@ -150,8 +149,7 @@ a {
         margin-left: 1rem;
         padding-bottom: 5px;
         color: $white;//$grey-dk-300;
-        text-transform: uppercase;
-        font-weight: bold;
+        font-weight: 500;
     }
 }
 
@@ -188,7 +186,7 @@ a:not([class]):hover {
 
     .page-wrap, .main-content-wrap {
         position: relative !important;
-        min-height: calc(100vh - 380px);
+        min-height: calc(100vh - 300px) !important;
     }
 }
 
@@ -482,3 +480,4 @@ ol {
 .no-img {
     background: $line-dk;
 }
+
