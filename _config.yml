@@ -32,6 +32,9 @@ theme: "just-the-docs"
 plugins:
   - jekyll-feed
 
+highlighter: rouge
+fenced_code_blocks: true
+
 aux_links:
   "Blog":
     - "/blog"
