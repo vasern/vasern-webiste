@@ -213,6 +213,7 @@ td, th { padding: 0; }
 @media (min-width: 768px) { .button { margin-bottom: initial; }
   .button:not(:first-child) { margin-left: 2em; } }
 .button.btn__default { border: 1px solid #183385; }
+.button.btn__normal a { padding: .4em 2.6em; font-weight: normal; }
 .button.btn__positive { background: #009c7b; }
 .button.btn__positive a { color: #fff; }
 .button.btn__positive span { margin-left: .4em; transition: ease-in .2s; display: inline-block; }
@@ -251,7 +252,7 @@ td, th { padding: 0; }
 
 .page__blog { margin-top: 60px !important; }
 
-.posts { width: 100%; max-width: 640px; font-size: 18px; line-height: 1.8em; margin: 2em 0; color: #263238; }
+.posts { width: 100%; max-width: 640px; font-size: 18px; line-height: 1.8em; margin: 2em auto; color: #263238; }
 @media (min-width: 768px) { .posts { margin-top: 3em; } }
 .posts h2 { font-size: 1.8em !important; }
 .posts h2:hover { opacity: .8; }
@@ -260,7 +261,14 @@ td, th { padding: 0; }
 .posts .post__meta > div { flex: 1; }
 .posts .post__meta .post__date { justify-content: flex-end; align-items: flex-end; font-size: .8em; display: flex; }
 .posts .post__item { padding-bottom: 2em; }
+.posts .post__item h2, .posts .post__item .title { margin-bottom: .4em; }
+.posts .post__item .title { font-weight: 500; font-size: 2.4em !important; line-height: 1.2em; }
+.posts .post__item p em { display: block; text-align: center; font-size: .8em; opacity: .8; }
+.posts .post__item .subtitle { font-size: 1.4em; opacity: .6; }
 .posts figure, .posts p { margin-bottom: 1.6em; }
+.posts .post__panel { margin: 4em 0; text-align: center; }
+@media (min-width: 768px) { .posts .post__panel { margin: 6em; } }
+.posts .post__footer { text-align: right; margin-top: 2.4em; padding-bottom: 1.8em; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
 
 .post__author { display: flex; flex-direction: row; align-items: center; }
 .post__author img { height: 40px; width: 40px; border-radius: 50%; margin-right: 1em; }

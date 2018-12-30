@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
-<head>
+    <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title>Blogs - Vasern</title>
+  <title>The pros and cons of different data formats: key-values vs tuples - Vasern</title>
   <link rel="stylesheet" href="http://localhost:4000/assets/css/just-the-docs.css">
   
   <script src="http://localhost:4000/assets/js/vendor/lunr.min.js"></script>
@@ -15,11 +15,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+    <!-- FB Comment Plugin -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2&appId=866760746763470&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- END: FB Comment Plugin -->
 
-  <div class="page-wrap">
-      <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
-    <div class="main-content-wrap">
-        
+    <div class="page-wrap">
+
+        <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
+        <div class="main-content-wrap">
+            
       <div class="page-header">
             <div class="side-bar">
   
@@ -81,108 +92,162 @@
           </div>
           
         </div>
+            
+            <div class="main-content-wrap page__blog page_wrapper">
+                <div class="posts">
+                        
         
-        <div class="main-content-wrap page__blog page_wrapper">
-            <div class="posts">
+                        <div class="post__item">
+                            
+                            
+                                <p><img src="https://cdn-images-1.medium.com/max/1600/1*1LI9TzwDU1l6IyJFBRcULw.jpeg" atl="The pros and cons of different data formats: key-values vs tuples" /></p>
+                            
 
-            
-            
-                
+                            <h1 class="title">The pros and cons of different data formats: key-values vs tuples</h1>
+                            <p class="subtitle">How data is formatted under the hood</p>
+                            <div class="post__meta">
+        
+                                <!-- AUTHOR -->
+                                <div class="post__author">
+                                    <img src="http://localhost:4000/assets/media/Hieu-Nguyen.png" alt="Hieu Nguyen">
+                                    <span class="post__author_desc">
+                                        
+                                            <a target="_blank" rel="noreferrer noopener" href="https://github.com/hieunc229">Hieu Nguyen</a>
+                                        
+                                        <span>Vasern Developer</span>
+                                    </span>
+                                </div> <!-- END: AUTHOR -->
+        
+                                <!-- DATE -->
+                                <div class="post__date">
+                                    <span>Saturday - December 29, 2018</span>
+                                </div> <!-- END: DATE -->
+                            </div>
 
-                <div class="post__item">
-                    <a href="/blog/2018-12-26-the-pros-and-cons-of-different-data-formats-key-values-vs-tuples.html"><h2>The pros and cons of different data formats: key-values vs tuples</h2></a>
-                    <p class="subtitle">How data is formatted under the hood</p>
-                    <div class="post__meta">
-
-                        <!-- AUTHOR -->
-                        <div class="post__author">
-                            <img src="http://localhost:4000/assets/media/Hieu-Nguyen.png" alt="Hieu Nguyen">
-                            <span class="post__author_desc">
-                                
-                                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/hieunc229">Hieu Nguyen</a>
-                                
-                                <span>Vasern Developer</span>
-                            </span>
-                        </div> <!-- END: AUTHOR -->
-
-                        <!-- DATE -->
-                        <div class="post__date">
-                            <span>Saturday - December 29, 2018</span>
-                        </div> <!-- END: DATE -->
-                    </div>
-                    
-                    <p><img src="https://cdn-images-1.medium.com/max/1600/1*1LI9TzwDU1l6IyJFBRcULw.jpeg" atl="The pros and cons of different data formats: key-values vs tuples" /></p>
-                    
-
-
-                    <p>Working on Vasern (a client database for React Native) has given me an opportunity to try and test different data formats which include key-value, column-oriented, document, and tuples. Each format was designed to suit different scenarios.</p>
+                            <p>Working on Vasern (a client database for React Native) has given me an opportunity to try and test different data formats which include key-value, column-oriented, document, and tuples. Each format was designed to suit different scenarios.</p>
 
 <p>The criteria of these tests focus on performance, the ability to lookup values, and space efficiency. Besides, it is not required to have on-disk sorted keys and indices. They will be loaded into memory for fast lookup.</p>
 
 <p>In this post, I will recap the pros and cons of the two common formats: key-values and tuples format. Also, I’ll introduce tagged key-values, an extension of key-values with index lookup, which benefits from the tuples format.</p>
 
+<!--more-->
 
+<h2 id="key-value-storage">Key-Value Storage</h2>
 
-                    <div class="post__footer">
-                        <span class="button btn__normal btn__default">
-                            <a href="/blog/2018-12-26-the-pros-and-cons-of-different-data-formats-key-values-vs-tuples.html" title="The pros and cons of different data formats: key-values vs tuples">Read full article</a>
-                        </span>
-                    </div>
-                </div>
-            
-                
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*TAEpQseQnq_d3bb6FQjBaQ@2x.png" alt="" class="image-caption" />
+<em>A collection of the key-value store</em></p>
 
-                <div class="post__item">
-                    <a href="/blog/2018-10-28-introduce-vasern-react-native-database.html"><h2>Introduce Vasern - a React Native database</h2></a>
-                    <p class="subtitle"></p>
-                    <div class="post__meta">
+<p>Key-values store a collection of key-and-value pairs, where sometimes the value represents more than one value, separated by delimiters (i.e. a comma). Those pairs are organized into blocks with fixed-length (for fast traverse between records).</p>
 
-                        <!-- AUTHOR -->
-                        <div class="post__author">
-                            <img src="http://localhost:4000/assets/media/Hieu-Nguyen.png" alt="Hieu Nguyen">
-                            <span class="post__author_desc">
-                                
-                                    <a target="_blank" rel="noreferrer noopener" href="https://github.com/hieunc229">Hieu Nguyen</a>
-                                
-                                <span>Vasern Developer</span>
-                            </span>
-                        </div> <!-- END: AUTHOR -->
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*Pz8Go3rs_NOO95mXUQlbdA@2x.png" alt="" class="image-caption" />
+<em>Example of single-block key-value store layout (“\0” represents null/empty value)</em></p>
 
-                        <!-- DATE -->
-                        <div class="post__date">
-                            <span>Saturday - December 29, 2018</span>
-                        </div> <!-- END: DATE -->
-                    </div>
-                    
-                    <p><img src="https://cdn-images-1.medium.com/max/2000/1*opEm8xOVsI7Wb_2F6ricmQ.png" atl="Introduce Vasern - a React Native database" /></p>
-                    
-
-
-                    <p>Vasern project started 3 months ago, with a goal to be a fast data storage for React Native, be able to sync to remote servers and available for everyone.</p>
-
-<p>I created Vasern for the following reasons:</p>
+<p><strong>Advantages of the key-value store:</strong></p>
 
 <ul>
-  <li>To provide simple APIs, allow to focus more on building the application instead of worrying about setup and optimize the database</li>
-  <li>Be a fast, lightweight and open source data storage for React Native</li>
-  <li>Everyone can install, run and sync data to their Vasern servers with minimal effort (under development)</li>
+  <li>Simple data format makes write and read operations fast</li>
+  <li>Value can be anything, including JSON, flexible schemas</li>
 </ul>
 
-<p><strong>Today, I am very excited to announce Vasern beta release.</strong></p>
+<p><strong>Disadvantages:</strong></p>
+
+<ul>
+  <li>Optimized only for data with single key and value. A parser is required to store multiple values.</li>
+  <li>Not optimized for lookup. Lookup requires scanning the whole collection or creating separate index values</li>
+</ul>
+
+<h2 id="tuples-data-store-rdbms">Tuples Data Store (RDBMS)</h2>
+<p>The tuples data format has existed for many decades. It is used in relational databases such as MySQL, Postgres, etc.</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*HZ0S94moHXVZOGZlfyYgNg@2x.png" alt="" class="image-caption" />
+<em>An example of the tuples data format in Relational Database</em></p>
+
+<p>Unlike the key-values format, it relies on the predefined schema to organize records into rows, and its values in fixed-length columns. Each value only/usually represents a single piece of information.</p>
+
+<p><strong>Advantages of tuples data store:</strong></p>
+
+<ul>
+  <li>Structured data format helps traverse through values of records quickly</li>
+  <li>Optimized for lookup (common use of SQL for querying records)</li>
+</ul>
+
+<p><strong>Disadvantages:</strong></p>
+
+<ul>
+  <li>Constrained by schema structure</li>
+  <li>Change of schema usually requires rewriting the whole database</li>
+</ul>
+
+<h2 id="tagged-key-value-store">Tagged Key-Value Store</h2>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*-jCIp9Bi57aQD1uwRfDiLQ@2x.png" alt="" class="image-caption" />
+<em>Uhmm, TKVF (tagged-key-value format)</em></p>
+
+<p>Tagged Key-Value is an extended version of Key-Value storage — it has more than one key for a single value. In other words, it has a key, indexes (or tags) and a body value for each record. Where:</p>
+
+<ul>
+  <li>Key and Indexes will be loaded into memory on startup</li>
+  <li>Body value can be anything from a plain string, BSON/JSON, or comma-separated value.</li>
+</ul>
+
+<p><strong>Advantages of Tagged Key-Value store:</strong></p>
+
+<ul>
+  <li>Semi-structured, which helps traverse through records and indexes fast</li>
+  <li>Optimized for lookup (through keys and indexes)</li>
+  <li>A record body can be anything, ideal for flexible schemas</li>
+  <li>Space efficiency (key, indices are organized in tight columns)</li>
+</ul>
+
+<p><strong>Disadvantages:</strong></p>
+
+<ul>
+  <li>Change of schema that includes indices might need data migration</li>
+</ul>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*MHFaMmQtQLQ_LikCYkj8lQ@2x.png" alt="" class="image-caption" />
+<em>A format example of the tagged-key-value</em></p>
+
+<h3 id="vasern-with-tagged-key-value-store">Vasern with Tagged Key-Value Store</h3>
+
+<p>Vasern is a client database for React Native. The latest version was released under beta for testing and was using key-value storage.</p>
+
+<p>In the upcoming 0.3.0-RC version, Vasern is switching to a tagged key-value store layout. Focus is on its powerful lookup feature and space efficiency.</p>
+
+<p>Below is a demo query. It’s beautiful, isn’t it?</p>
+
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*3XwsvhlRZp0astMlJ68OAw@2x.png" alt="" class="image-caption" />
+<em>A demo of Vasern query</em></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>There are many databases with different data formats to choose for an application. Two common formats are:</p>
+
+<ul>
+  <li>Key-Value pairs — fast read and write but not optimized for lookup. It’s often used as simple data storage, NoSQL.</li>
+  <li>Tuples — support multi typed-values, indexes, optimized for lookup, but a lack of schema flexibility. Commonly used for Relational Databases.</li>
+</ul>
+
+<p>By combining the strengths mentioned above, the Tagged-Key-Values format is flexible with data schema, and is able to look up records through keys and indices. This is often better suited for a client’s database.</p>
 
 
+                            <div class="post__panel">
+                                <span class="button btn__positive">
+                                    <a href="http://localhost:4000/docs/getting-started/install-vasern.html">Start using Vasern</a>
+                                </span>
+                            </div>
 
-                    <div class="post__footer">
-                        <span class="button btn__normal btn__default">
-                            <a href="/blog/2018-10-28-introduce-vasern-react-native-database.html" title="Introduce Vasern - a React Native database">Read full article</a>
-                        </span>
-                    </div>
+                            <div 
+                                class="fb-comments" 
+                                data-href="http://localhost:4000/blog/2018-12-26-the-pros-and-cons-of-different-data-formats-key-values-vs-tuples.html" 
+                                data-width="640" 
+                                data-numposts="5"></div>
+                        </div>
                 </div>
-            
             </div>
         </div>
-
-        <footer>
+    </div>
+    <footer>
     <div class="page_wrapper block__flex">
         
         <div class="block__col-1 copyright">
@@ -303,8 +368,6 @@
         </a>
     </div>
 </footer>
-    </div>
-
   </div>
 </body>
 </html>
