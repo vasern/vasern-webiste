@@ -7,7 +7,7 @@
     max-width: 640px;
     font-size: 18px;
     line-height: 1.8em;
-    margin: 2em 0;
+    margin: 2em auto;
     color: $text-dk;
 
     @include tablet() {
@@ -45,10 +45,50 @@
 
     .post__item {
         padding-bottom: 2em;
+
+        h2, .title {
+            margin-bottom: .4em;
+        }
+
+        .title {
+            font-weight: 500;
+            font-size: 2.4em !important;
+            line-height: 1.2em;
+        }
+
+        p {
+            em {
+                display: block;
+                text-align: center;
+                font-size: .8em;
+                opacity: .8;
+            }
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            opacity: .6;
+        }
     }
 
     figure, p {
         margin-bottom: 1.6em;
+    }
+
+    .post__panel {
+        margin: 4em 0;
+        text-align: center;
+
+        @include tablet() {
+            margin: 6em;
+        }
+    }
+
+    .post__footer {
+        text-align: right;
+        margin-top: 2.4em;
+        padding-bottom: 1.8em;
+        border-bottom: 1px solid $line-dk;
     }
 }
 

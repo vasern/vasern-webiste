@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
+# baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://v0-3-dev.vasern.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: vaserndb
 github_username:  vasern
@@ -36,23 +36,29 @@ highlighter: rouge
 fenced_code_blocks: true
 
 aux_links:
-  "Blog":
-    - "/blog"
-  "Examples":
-    - "/docs/examples.html"
-  "API":
-    - "/api"
-  "Documentation":
-    - "/docs"
-  "GitHub":
-    - "https://github.com/vasern/vasern"
-    - "github-logo"
+  - "Blog":
+    url: "/blog"
+  - "Examples":
+    url: "/docs/examples.html"
+  - "API":
+    url: "/api"
+  - "Documentation":
+    url: "/docs"
+  - "GitHub":
+    url: "https://github.com/vasern/vasern"
+    icon: "github-logo"
 
 destination: ../master
 include: ['CNAME']
 collections:
   blog:
     output: true
+
+# Custom variables
+excerpt_separator: <!--more--> 
+install_url: docs/getting-started/install-vasern.html
+tagline: Fast and open source database
+tagdesc: Vasern let developers quickly setup database for React Native apps. It’s fast, lightweight, and open source.
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

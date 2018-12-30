@@ -10,16 +10,19 @@
         
         <div class="main-content-wrap page__blog page_wrapper">
             <div class="posts">
-            {% for article in site.blog %}
+
+            {% assign articles = site.blog | sort: "published_at" | reverse %}
+            {% for article in articles %}
                 {% assign author = site.data.authors[article.author] %}
 
                 <div class="post__item">
                     <a href="{{ article.url }}"><h2>{{ article.title }}</h2></a>
+                    <p class="subtitle">{{ article.description }}</p>
                     <div class="post__meta">
 
                         <!-- AUTHOR -->
                         <div class="post__author">
-                            <img src="{{ "assets/media/" | absolute_url }}{{ author.avatar }}" alt="{{ author.name }}">
+                            <img src="{{ author.avatar | prepend: "assets/media/" | absolute_url }}" alt="{{ author.name }}">
                             <span class="post__author_desc">
                                 {% if author.url %}
                                     <a target="_blank" rel="noreferrer noopener" href="{{ author.url }}">{{ author.name }}</a>
@@ -36,13 +39,17 @@
                         </div> <!-- END: DATE -->
                     </div>
                     {% if article.photo %}
-                        <img src="{{ article.photo }}" atl="{{ article.title }}" />
+                    <p><img src="{{ article.photo }}" atl="{{ article.title }}" /></p>
                     {% endif %}
 
-                    <p>
-                        {{ article.description | markdownify }}
-                    </p>
 
+                    {{ article.excerpt | markdownify }}
+
+                    <div class="post__footer">
+                        <span class="button btn__normal btn__default">
+                            <a href="{{ article.url }}" title="{{ article.title }}">Read full article</a>
+                        </span>
+                    </div>
                 </div>
             {% endfor %}
             </div>

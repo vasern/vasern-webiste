@@ -38,6 +38,13 @@
         border: 1px solid $blue-300;
     }
     
+    &.btn__normal {
+        a {
+            padding: .4em 2.6em;
+            font-weight: normal;
+        }
+    }
+
     &.btn__positive {
         background: $green-200;
 

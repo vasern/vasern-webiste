@@ -24,7 +24,13 @@
                         {% assign author = site.data.authors[page.author] %}
         
                         <div class="post__item">
-                            <h2>{{ page.title }}</h2>
+                            
+                            {% if page.photo %}
+                                <p><img src="{{ page.photo }}" atl="{{ page.title }}" /></p>
+                            {% endif %}
+
+                            <h1 class="title">{{ page.title }}</h1>
+                            <p class="subtitle">{{ page.description }}</p>
                             <div class="post__meta">
         
                                 <!-- AUTHOR -->
@@ -45,16 +51,20 @@
                                     <span>{{ page.published_at | date: "%A - %B %d, %Y" }}</span>
                                 </div> <!-- END: DATE -->
                             </div>
-                            {% if page.photo %}
-                                <img src="{{ page.photo }}" atl="{{ page.title }}" />
-                            {% endif %}
-        
-                            <p>
-                                {{ page.description | markdownify }}
-                            </p>
+
                             {{ content }}
 
-                            <div class="fb-comments" data-href="{{ page.url | absolute_url }}" data-width="640" data-numposts="5"></div>
+                            <div class="post__panel">
+                                <span class="button btn__positive">
+                                    <a href="{{ site.install_url | absolute_url }}">Start using Vasern</a>
+                                </span>
+                            </div>
+
+                            <div 
+                                class="fb-comments" 
+                                data-href="{{ page.url | absolute_url }}" 
+                                data-width="640" 
+                                data-numposts="5"></div>
                         </div>
                 </div>
             </div>
