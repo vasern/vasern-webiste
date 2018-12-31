@@ -42,7 +42,7 @@ aux_links:
     url: "/docs/examples.html"
   - "API":
     url: "/api"
-  - "Documentation":
+  - "Docs":
     url: "/docs"
   - "GitHub":
     url: "https://github.com/vasern/vasern"

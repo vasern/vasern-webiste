@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,600');
+
+$font-sans: -apple-system, BlinkMacSystemFont, "helvetica neue", helvetica, roboto, noto, "segoe ui", arial, sans-serif;
+$font-serif: "PT Serif", serif;
+
+// .page-content p,
+.posts .post__item p:not(.subtitle), 
+.posts .post__item li {
+    font-family: $font-serif;
+}

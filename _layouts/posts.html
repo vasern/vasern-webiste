@@ -1,3 +1,4 @@
+{% assign page_category = "Blog" %}
 <!DOCTYPE html>
 
 <html lang="en-us">
@@ -9,14 +10,14 @@
         {% include top-nav.html %}
         
         <div class="main-content-wrap page__blog page_wrapper">
-            <div class="posts">
+            <div class="posts posts__items">
 
             {% assign articles = site.blog | sort: "published_at" | reverse %}
             {% for article in articles %}
                 {% assign author = site.data.authors[article.author] %}
 
                 <div class="post__item">
-                    <a href="{{ article.url }}"><h2>{{ article.title }}</h2></a>
+                    <a href="{{ article.url }}"><h2 class="list__title">{{ article.title }}</h2></a>
                     <p class="subtitle">{{ article.description }}</p>
                     <div class="post__meta">
 
@@ -35,7 +36,7 @@
 
                         <!-- DATE -->
                         <div class="post__date">
-                            <span>{{ article.published_at | date: "%A - %B %d, %Y" }}</span>
+                            <span>{{ article.published_at | date: "%A - %d %B, %Y" }}</span>
                         </div> <!-- END: DATE -->
                     </div>
                     {% if article.photo %}

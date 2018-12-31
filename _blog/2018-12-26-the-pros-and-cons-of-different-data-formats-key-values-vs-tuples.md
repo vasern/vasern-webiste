@@ -19,13 +19,13 @@ In this post, I will recap the pros and cons of the two common formats: key-valu
 
 ## Key-Value Storage
 
-![](https://cdn-images-1.medium.com/max/2000/1*TAEpQseQnq_d3bb6FQjBaQ@2x.png){:.image-caption}
-*A collection of the key-value store*
+![](https://cdn-images-1.medium.com/max/2000/1*TAEpQseQnq_d3bb6FQjBaQ@2x.png)
+*A collection of the key-value store*{: .image-caption }
 
 Key-values store a collection of key-and-value pairs, where sometimes the value represents more than one value, separated by delimiters (i.e. a comma). Those pairs are organized into blocks with fixed-length (for fast traverse between records).
 
-![](https://cdn-images-1.medium.com/max/1600/1*Pz8Go3rs_NOO95mXUQlbdA@2x.png){:.image-caption}
-*Example of single-block key-value store layout (“\0” represents null/empty value)*
+![](https://cdn-images-1.medium.com/max/1600/1*Pz8Go3rs_NOO95mXUQlbdA@2x.png)
+*Example of single-block key-value store layout (“\0” represents null/empty value)*{: .image-caption }
 
 __Advantages of the key-value store:__
 
@@ -40,8 +40,8 @@ __Disadvantages:__
 ## Tuples Data Store (RDBMS)
 The tuples data format has existed for many decades. It is used in relational databases such as MySQL, Postgres, etc.
 
-![](https://cdn-images-1.medium.com/max/1600/1*HZ0S94moHXVZOGZlfyYgNg@2x.png){:.image-caption}
-*An example of the tuples data format in Relational Database*
+![](https://cdn-images-1.medium.com/max/1600/1*HZ0S94moHXVZOGZlfyYgNg@2x.png)
+*An example of the tuples data format in Relational Database*{: .image-caption }
 
 Unlike the key-values format, it relies on the predefined schema to organize records into rows, and its values in fixed-length columns. Each value only/usually represents a single piece of information.
 
@@ -57,8 +57,8 @@ __Disadvantages:__
 
 ## Tagged Key-Value Store
 
-![](https://cdn-images-1.medium.com/max/1600/1*-jCIp9Bi57aQD1uwRfDiLQ@2x.png){:.image-caption}
-*Uhmm, TKVF (tagged-key-value format)*
+![](https://cdn-images-1.medium.com/max/1600/1*-jCIp9Bi57aQD1uwRfDiLQ@2x.png)
+*Uhmm, TKVF (tagged-key-value format)*{: .image-caption }
 
 Tagged Key-Value is an extended version of Key-Value storage — it has more than one key for a single value. In other words, it has a key, indexes (or tags) and a body value for each record. Where:
 
@@ -76,8 +76,8 @@ __Disadvantages:__
 
 - Change of schema that includes indices might need data migration
 
-![](https://cdn-images-1.medium.com/max/1600/1*MHFaMmQtQLQ_LikCYkj8lQ@2x.png){:.image-caption}
-*A format example of the tagged-key-value*
+![](https://cdn-images-1.medium.com/max/1600/1*MHFaMmQtQLQ_LikCYkj8lQ@2x.png)
+*A format example of the tagged-key-value*{: .image-caption }
 
 ### Vasern with Tagged Key-Value Store
 
@@ -87,8 +87,8 @@ In the upcoming 0.3.0-RC version, Vasern is switching to a tagged key-value stor
 
 Below is a demo query. It’s beautiful, isn’t it?
 
-![](https://cdn-images-1.medium.com/max/1600/1*3XwsvhlRZp0astMlJ68OAw@2x.png){:.image-caption}
-*A demo of Vasern query*
+![](https://cdn-images-1.medium.com/max/1600/1*3XwsvhlRZp0astMlJ68OAw@2x.png)
+*A demo of Vasern query*{: .image-caption }
 
 ## Conclusion
 

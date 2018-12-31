@@ -3,8 +3,11 @@
             <div class="side-bar">
   
               <a href="{{ site.url }}" class="site-title fs-6 lh-tight">
-                <img class="page-logo" src="{{ "assets/media/vasern-icon.svg" | absolute_url }}" alt="{{ site.url }}" />  
-                {{ site.title }}
+                <img class="page-logo" src="{{ "assets/media/vasern-icon.svg" | absolute_url }}" alt="{{ site.url }}" /> 
+                <img class="page-logo-text" height="18" src="{{ "assets/media/vasern-text.svg" | absolute_url }}"" alt="{{ site.title }}">
+                {% if page_category != nil %}
+                  <span class="site__category">{{ page_category }}</span>
+                {% endif %}
               </a>
             </div>
           <div class="main-content">

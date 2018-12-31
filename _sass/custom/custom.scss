@@ -1,4 +1,5 @@
 @import "_colors";
+@import "_fonts";
 @import "_breakpoint";
 @import "_block";
 
@@ -12,9 +13,9 @@
 
 body {
     line-height: 1.6;
-    font-family: 'NeueHass',-apple-system,BlinkMacSystemFont,Helvetica, sans-serif;
     padding-bottom: unset !important;
 }
+
 
 a {
     text-decoration: none !important;
@@ -38,16 +39,50 @@ a {
     margin-top: 2em !important;
 }
 
-.navigation-list-link.active {
-    color: $blue-100;
-    font-weight: unset;
+.navigation-list {
+
+    .navigation-list-child-list {
+
+        border-left: 1px solid $grey-lt-400;
+        padding-left: unset !important;
+
+        .navigation-list-link {
+            padding: .4em 1em;
+            opacity: .6;
+
+            &.active {
+                color: #2869e6 !important;
+                opacity: 1;
+                border-left: 2px solid;
+                margin-left: -1px;
+            }
+
+            &:hover {
+                opacity: 1;
+                background: $line-dk-000;
+            }
+        }
+
+        .navigation-list-item::before {
+            content: " " !important;
+        }
+    }
+ 
+    line-height: 1.6em !important;
+
+    .navigation-list-item.parent > a {
+        font-weight: bold;
+    }
+
+    .navigation-list-item:not(.parent) > a {
+
+        &:hover {
+            opacity: 1;
+            background: $line-dk-000;
+        }
+    }
 }
-.navigation-list-child-list .navigation-list-item::before {
-    content: " " !important;
-}
-.navigation-list-child-list {
-    border-left: 1px dashed $grey-lt-400;
-}
+
 .side-bar a {
     color: $grey-dk-200;
 }
@@ -100,14 +135,16 @@ a {
         flex-direction: row;
         align-items: center;
         padding-top: 0;
-        // font-weight: 500;
-        color: $white;//$grey-dk-300;
-        font-family: "Merriweather", serif;
+        color: $white;
         font-weight: bold;
 
         img.page-logo {
             height: 30px;
             margin-right: 10px;
+        }
+
+        .page-logo-text {
+            height: 18px;
         }
     }
 
@@ -188,10 +225,6 @@ a:not([class]):hover {
         position: relative !important;
         min-height: calc(100vh - 300px) !important;
     }
-}
-
-.navigation-list-item.parent > a {
-    font-weight: bold;
 }
 
 .page-header .main-content {
@@ -305,7 +338,6 @@ a:not([class]):hover {
     }
 
     h1 {
-        font-family: "Merriweather", serif;
         font-weight: bold;
         font-size: 4em !important;
     }
@@ -481,3 +513,13 @@ ol {
     background: $line-dk;
 }
 
+
+.site__category {
+    @include tablet() {
+        font-size: 16px;
+        margin-left: 1em;
+        padding-left: 1em;
+        border-left: 1px solid $line-lt;
+        font-weight: normal;
+    }
+}

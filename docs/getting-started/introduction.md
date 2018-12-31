@@ -1,12 +1,11 @@
 ---
 layout: default
-id: overview
-title: Overview
+id: introduction
+title: Introduction
 parent: Getting Started
 nav_order: 1
+permalink: /docs
 ---
-
-# Overview
 
 Vasern is a data storage for React Native, focus on performance, and consistency. Our goal is to develop an open source, developer friendly, database sync solution.
 

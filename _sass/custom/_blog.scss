@@ -14,7 +14,7 @@
         margin-top: 3em;
     }
 
-    h2 {
+    > h2, .list__title {
         font-size: 1.8em !important;
 
         &:hover {
@@ -48,16 +48,16 @@
 
         h2, .title {
             margin-bottom: .4em;
+            line-height: 1.2em;
+            font-weight: 500;
         }
 
-        .title {
-            font-weight: 500;
-            font-size: 2.4em !important;
-            line-height: 1.2em;
+        h2:not(.list__title) {
+            font-size: 1.6em !important;
         }
 
         p {
-            em {
+            .image-caption {
                 display: block;
                 text-align: center;
                 font-size: .8em;
@@ -68,6 +68,11 @@
         .subtitle {
             font-size: 1.4em;
             opacity: .6;
+        }
+
+        h3 {
+            font-weight: bold;
+            font-size: 1.4em;
         }
     }
 
@@ -89,6 +94,11 @@
         margin-top: 2.4em;
         padding-bottom: 1.8em;
         border-bottom: 1px solid $line-dk;
+    }
+
+    p:not(.subtitle), li {
+        font-family: $font-sans;
+        font-size: 1.08em;
     }
 }
 

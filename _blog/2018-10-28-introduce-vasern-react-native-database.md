@@ -20,7 +20,7 @@ I created Vasern for the following reasons:
 
 <!--more-->
 
-# Beta Release and Features
+## Beta Release and Features
 Vasern shows an impressive performance (will be mention in a future post). Now available for React Native on iOS and Android, which:
 
 - Support [languages use UTF-8 encoding](https://superuser.com/questions/946612/what-languages-does-the-character-encoding-utf-8-support).
@@ -32,12 +32,12 @@ Vasern shows an impressive performance (will be mention in a future post). Now a
 The beta version is being heavily tested to ensure its functionality, data quality and consistency. __Please [create an issue on Github](https://github.com/vasern/vasern/issues) if you found a bug.__
 
 
-# What is next?
+## What is next?
 Vasern is set out not only for local data storage but also be able to store data on the cloud and sync across app clients. I have already started working on the cloud integration called Vasern Server, and created [vasern-server](https://github.com/vasern/vasern-server) — a reserve Github repository.
 
 At this stage, I can only reveal that it was built using Golang, a powerful server side language created by folks who work at Google. More updates about Vasern Server will be in the future posts.
 
-# Towards the future of Vasern
+## Towards the future of Vasern
 As JavaScript is available for both web and mobile application. Vasern will leverage this advantage, help you write once, use everywhere. Imagine you only need to write schemas, extra functionality for your React Native app. Then reuse it across your web apps. That’s the goal.
 
 I would also really like to look for the opportunity to integrate Vasern with other platform (Ionic framework, and Cordova for example). And push it as far as it can go.

@@ -1,7 +1,7 @@
 ---
 layout: posts
 id: blog
-title: Blogs
+title: Blog
 nav_exclude: true
 nav_order: 1
 ---
