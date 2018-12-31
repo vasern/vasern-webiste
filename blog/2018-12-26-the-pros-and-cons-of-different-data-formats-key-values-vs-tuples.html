@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en-us">
@@ -35,8 +36,11 @@
             <div class="side-bar">
   
               <a href="https://v0-3-dev.vasern.com" class="site-title fs-6 lh-tight">
-                <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-icon.svg" alt="https://v0-3-dev.vasern.com" />  
-                Vasern
+                <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-icon.svg" alt="https://v0-3-dev.vasern.com" /> 
+                <img class="page-logo-text" height="18" src="https://v0-3-dev.vasern.com/assets/media/vasern-text.svg"" alt="Vasern">
+                
+                  <span class="site__category">Blog</span>
+                
               </a>
             </div>
           <div class="main-content">
@@ -63,7 +67,7 @@
                 
 
                     
-                        <li class="d-inline-block my-0 mr-2"><a href="/docs">Documentation</a></li>
+                        <li class="d-inline-block my-0 mr-2"><a href="/docs">Docs</a></li>
                     
 
                 
@@ -94,7 +98,7 @@
         </div>
             
             <div class="main-content-wrap page__blog page_wrapper">
-                <div class="posts">
+                <div class="posts post__single">
                         
         
                         <div class="post__item">
@@ -120,7 +124,7 @@
         
                                 <!-- DATE -->
                                 <div class="post__date">
-                                    <span>Saturday - December 29, 2018</span>
+                                    <span>Saturday - 29 December, 2018</span>
                                 </div> <!-- END: DATE -->
                             </div>
 
@@ -134,13 +138,13 @@
 
 <h2 id="key-value-storage">Key-Value Storage</h2>
 
-<p><img src="https://cdn-images-1.medium.com/max/2000/1*TAEpQseQnq_d3bb6FQjBaQ@2x.png" alt="" class="image-caption" />
-<em>A collection of the key-value store</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2000/1*TAEpQseQnq_d3bb6FQjBaQ@2x.png" alt="" />
+<em class="image-caption">A collection of the key-value store</em></p>
 
 <p>Key-values store a collection of key-and-value pairs, where sometimes the value represents more than one value, separated by delimiters (i.e. a comma). Those pairs are organized into blocks with fixed-length (for fast traverse between records).</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*Pz8Go3rs_NOO95mXUQlbdA@2x.png" alt="" class="image-caption" />
-<em>Example of single-block key-value store layout (“\0” represents null/empty value)</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*Pz8Go3rs_NOO95mXUQlbdA@2x.png" alt="" />
+<em class="image-caption">Example of single-block key-value store layout (“\0” represents null/empty value)</em></p>
 
 <p><strong>Advantages of the key-value store:</strong></p>
 
@@ -159,8 +163,8 @@
 <h2 id="tuples-data-store-rdbms">Tuples Data Store (RDBMS)</h2>
 <p>The tuples data format has existed for many decades. It is used in relational databases such as MySQL, Postgres, etc.</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*HZ0S94moHXVZOGZlfyYgNg@2x.png" alt="" class="image-caption" />
-<em>An example of the tuples data format in Relational Database</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*HZ0S94moHXVZOGZlfyYgNg@2x.png" alt="" />
+<em class="image-caption">An example of the tuples data format in Relational Database</em></p>
 
 <p>Unlike the key-values format, it relies on the predefined schema to organize records into rows, and its values in fixed-length columns. Each value only/usually represents a single piece of information.</p>
 
@@ -180,8 +184,8 @@
 
 <h2 id="tagged-key-value-store">Tagged Key-Value Store</h2>
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*-jCIp9Bi57aQD1uwRfDiLQ@2x.png" alt="" class="image-caption" />
-<em>Uhmm, TKVF (tagged-key-value format)</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*-jCIp9Bi57aQD1uwRfDiLQ@2x.png" alt="" />
+<em class="image-caption">Uhmm, TKVF (tagged-key-value format)</em></p>
 
 <p>Tagged Key-Value is an extended version of Key-Value storage — it has more than one key for a single value. In other words, it has a key, indexes (or tags) and a body value for each record. Where:</p>
 
@@ -205,8 +209,8 @@
   <li>Change of schema that includes indices might need data migration</li>
 </ul>
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*MHFaMmQtQLQ_LikCYkj8lQ@2x.png" alt="" class="image-caption" />
-<em>A format example of the tagged-key-value</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*MHFaMmQtQLQ_LikCYkj8lQ@2x.png" alt="" />
+<em class="image-caption">A format example of the tagged-key-value</em></p>
 
 <h3 id="vasern-with-tagged-key-value-store">Vasern with Tagged Key-Value Store</h3>
 
@@ -216,8 +220,8 @@
 
 <p>Below is a demo query. It’s beautiful, isn’t it?</p>
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/1*3XwsvhlRZp0astMlJ68OAw@2x.png" alt="" class="image-caption" />
-<em>A demo of Vasern query</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*3XwsvhlRZp0astMlJ68OAw@2x.png" alt="" />
+<em class="image-caption">A demo of Vasern query</em></p>
 
 <h2 id="conclusion">Conclusion</h2>
 
