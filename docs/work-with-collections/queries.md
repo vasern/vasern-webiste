@@ -1,8 +1,9 @@
 ---
 layout: default
-id: queries
-title: Queries
+id: vasern-query-language
+title: Vasern Query Language
 nav_order: 7
+parent: Work with Collections
 ---
 
 Queries are used to get and filter records through a `Queryable` object. Which uses `lodash` to work with `Array` records. The following contents are a list of available query methods.

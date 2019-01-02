@@ -1,8 +1,8 @@
 ---
 layout: default
-id: vasern-data-model
-title: Vasern Data Model
-nav_order: 3
+id: database-and-collection
+title: Database and Collection
+nav_order: 2
 has_children: true
 ---
 

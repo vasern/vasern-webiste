@@ -1,9 +1,9 @@
 ---
 layout: default
-id: write-schema-setup-vasern
-title: Write Schema, Setup Vasern
+id: database-model
+title: Database Model
 nav_order: 5
-parent: Vasern Data Model
+parent: Database and Collection
 ---
 
 Schemas are required to help `Document`s define its properties data type and validate records.

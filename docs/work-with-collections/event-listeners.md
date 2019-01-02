@@ -3,6 +3,7 @@ layout: default
 id: event-listeners
 title: Event Listeners
 nav_order: 8
+parent: Work with Collections
 ---
  
 Event listeners are callback functions that subscribe to a `Document`'s event

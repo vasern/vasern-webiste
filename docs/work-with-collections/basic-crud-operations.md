@@ -3,6 +3,7 @@ layout: default
 permalink: basic-crud-operation
 title: Basic CRUD operations
 nav_order: 6
+parent: Work with Collections
 ---
 
 CRUD shorts for create (insert), read (get), update, delete (remove) - basic database operations.

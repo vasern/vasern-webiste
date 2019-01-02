@@ -53,6 +53,8 @@ include: ['CNAME']
 collections:
   blog:
     output: true
+  api:
+    output: true
 
 # Custom variables
 excerpt_separator: <!--more--> 

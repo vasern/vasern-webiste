@@ -3,7 +3,7 @@ layout: default
 id: data-types
 title: Data Types
 nav_order: 4
-parent: Vasern Data Model
+parent: Database and Collection
 ---
 
 Data types are used to define property's type when writting Document schema.

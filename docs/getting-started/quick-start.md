@@ -1,7 +1,7 @@
 ---
 layout: default
 id: quick-start
-title: Quick Start
+title: 1 Minute Quick Start
 parent: Getting Started
 nav_order: 2
 ---

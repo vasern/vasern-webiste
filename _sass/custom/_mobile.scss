@@ -1,0 +1,30 @@
+@include phone() {
+
+    .burger__menu {
+        width: 36px;
+        height: 36px;
+        display: inline-block;
+        position: absolute;
+        right: 1.2em;
+        top: .9em;
+        z-index: 999;
+
+        span {
+            height: 3px;
+            display: block;
+            background: rgba(255, 255, 255, 0.4);
+            margin: 5px;
+            border-radius: 2em;
+        }
+    }
+
+    .mobile__mode {
+        .js-search-results {
+            left: 0;
+
+            a {
+                color: $green-100;
+            }
+        }
+    }
+}

@@ -14,34 +14,50 @@ $screen-xl-min: 1200px;
 
 // Small devices
 @mixin phone {
-    @media (max-width: #{$screen-sm-min}) {
-        @content;
-    }
- }
- 
- // Medium devices
- @mixin tablet {
-    @media (min-width: #{$screen-md-min}) {
-        @content;
-    }
- }
- 
- // Large devices
- @mixin tablet-lg {
-    @media (min-width: #{$screen-lg-min}) {
-        @content;
-    }
- }
- 
- // Extra large devices
- @mixin desktop {
-    @media (min-width: #{$screen-xl-min}) {
-        @content;
-    }
- }
+  @media (max-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
 
- @mixin rwd($screen) {
-    @media (min-width: $screen+'px') {
-        @content;
+// Medium devices
+@mixin tablet {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin tablet-lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin desktop {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
+}
+
+@mixin rwd($screen) {
+  @media (min-width: $screen+"px") {
+    @content;
+  }
+}
+
+.mobile__only {
+    display: initial;
+
+    @include tablet() {
+        display: none;
     }
- }
+}
+
+.not__mobile {
+    display: none;
+
+    @include tablet() {
+        display: initial;
+    }
+}

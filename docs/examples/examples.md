@@ -4,5 +4,5 @@ id: todo-example
 title: Examples
 has_children: true
 permalink: /docs/examples
-nav_order: 10
+nav_order: 4
 ---

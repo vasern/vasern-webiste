@@ -1,7 +1,7 @@
 ---
 layout: default
 id: collection
-parent: Vasern Data Model
+parent: Database and Collection
 nav_order: 3
 title: Collection
 ---
