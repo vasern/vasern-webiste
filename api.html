@@ -19,6 +19,7 @@
 
   <div class="page-wrap top">
     <div class="side-bar">
+      <!-- .pinned__nav -->
       <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
       <div class="navigation main-nav js-main-nav">
           <nav>
@@ -119,42 +120,157 @@
         for specific ReQL documentation.
     </span>
 </div> --></p>
-          <hr />
           
-          <div class="api__section">
-            <h2 id="database">Database</h2>
+            <hr />
+            <div class="api__section">
+              <h2 id="data-types">Data types</h2>
 
-<p>This page showing how collection look</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">types</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+</code></pre></div></div>
 
 <hr />
 
-<h3 id="collection">Collection</h3>
+<h3 id="string">string</h3>
 
-<p>Here is domw</p>
-
-<hr />
-
-          </div>
-          
-          <div class="api__section">
-            <h2 id="collection">Collection</h2>
-
-<p>List colleciton write ..</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+</code></pre></div></div>
 
 <hr />
 
-          </div>
-          
-          <div class="api__section">
-            <h2 id="vasern-query-language">Vasern Query Language</h2>
+<h3 id="boolean">boolean</h3>
 
-<p>VQL</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="kr">boolean</span><span class="p">()</span>
+</code></pre></div></div>
 
 <hr />
 
-          </div>
-          
+<h3 id="number">number</h3>
 
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">number</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="ref">ref</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="s1">'Users'</span><span class="p">)</span>
+</code></pre></div></div>
+
+            </div>
+          
+            <hr />
+            <div class="api__section">
+              <h2 id="database">Database</h2>
+
+<h3 id="createcollection">createCollection</h3>
+
+<p>Create a new collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"People"</span><span class="p">,</span>
+    <span class="na">keys</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">firstname</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span>
+        <span class="na">lastName</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><strong>Arguments</strong>: abc</p>
+
+<p><strong>Return</strong>: Collection</p>
+
+<hr />
+
+<h3 id="collect">collect</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s1">'People'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="removeallcollections">removeAllCollections</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
+</code></pre></div></div>
+
+            </div>
+          
+            <hr />
+            <div class="api__section">
+              <h2 id="collection">Collection</h2>
+
+<h3 id="insert">insert</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
+    <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+    <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Citizen"</span>
+<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="update">update</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">recordID</span><span class="p">,</span> <span class="p">{</span>
+    <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Lisa"</span>
+<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="remove">remove</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="nx">recordID</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="removeallrecords">removeAllRecords</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">removeAllRecords</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+            </div>
+          
+            <hr />
+            <div class="api__section">
+              <h2 id="query-records">Query Records</h2>
+
+<h3 id="filter">filter</h3>
+
+<hr />
+
+<h3 id="paging">paging</h3>
+
+<p>Note: not work with <code class="highlighter-rouge">limit</code></p>
+
+<hr />
+
+<h3 id="limit">limit</h3>
+
+<p>Note: not work with <code class="highlighter-rouge">paging</code></p>
+
+<hr />
+
+<h3 id="include">include</h3>
+
+<hr />
+
+<h3 id="sort">sort</h3>
+
+            </div>
+          
+            <hr />
+            <div class="api__section">
+              <h2 id="result-object">Result Object</h2>
+
+<h3 id="asproxy">asProxy</h3>
+
+<hr />
+
+<h3 id="aspromise">asPromise</h3>
+
+            </div>
           
         </div>
       </div>

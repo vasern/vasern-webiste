@@ -1,11 +1,32 @@
 <h2 id="database">Database</h2>
 
-<p>This page showing how collection look</p>
+<h3 id="createcollection">createCollection</h3>
+
+<p>Create a new collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">({</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"People"</span><span class="p">,</span>
+    <span class="na">keys</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">firstname</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span>
+        <span class="na">lastName</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p><strong>Arguments</strong>: abc</p>
+
+<p><strong>Return</strong>: Collection</p>
 
 <hr />
 
-<h3 id="collection">Collection</h3>
+<h3 id="collect">collect</h3>
 
-<p>Here is domw</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s1">'People'</span><span class="p">)</span>
+</code></pre></div></div>
 
 <hr />
+
+<h3 id="removeallcollections">removeAllCollections</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
+</code></pre></div></div>
