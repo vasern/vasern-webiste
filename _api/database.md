@@ -4,12 +4,36 @@ order: 1
 
 ## Database
 
-This page showing how collection look
+### createCollection
+
+Create a new collection
+
+```js
+var peopleCollection = VasernDB.createCollection({
+    name: "People",
+    keys: {
+        firstname: types.string(55),
+        lastName: types.string(55)
+    }
+})
+```
+
+**Arguments**: abc
+
+**Return**: Collection
 
 ---
 
-### Collection
+### collect
 
-Here is domw
+```js
+var peopleCollection = VasernDB.collect('People')
+```
 
 ---
+
+### removeAllCollections
+
+```js
+VasernDB.removeAllCollection()
+```

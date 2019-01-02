@@ -42,6 +42,7 @@ a {
 
 .navigation-list {
 
+
     > li {
         margin-bottom: 1em;
     }
@@ -93,8 +94,7 @@ a {
 
     .footer__btn {
 
-        font-weight: 500;
-        border-top: 1px solid $line-dk;
+        font-weight: 600;
         display: flex;
         padding: auto 1em;
 
@@ -254,6 +254,11 @@ a:not([class]):hover {
     opacity: .7;
 }
 
+.pinned__nav {
+    position: fixed !important;
+    // z-index: 0 !important;
+    max-height: 90vh;
+}
 @media (min-width: 46.25rem) {
    
     .navigation {
@@ -474,6 +479,7 @@ footer {
     background: $bg;
     color: $text;
     padding: 1.4em 1em;
+    // z-index: 9;
 
     @include tablet() {
         padding: 3.6em;
