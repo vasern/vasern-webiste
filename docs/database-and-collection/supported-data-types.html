@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title>Getting Started - Vasern</title>
+  <title>Data Types - Vasern</title>
   <link rel="stylesheet" href="https://v0-3-dev.vasern.com/assets/css/just-the-docs.css">
   
   <script src="https://v0-3-dev.vasern.com/assets/js/vendor/lunr.min.js"></script>
@@ -35,7 +35,7 @@
     
       
         
-          <li class="navigation-list-item active active parent ">
+          <li class="navigation-list-item active parent ">
             
 
             
@@ -133,7 +133,7 @@
     
       
         
-          <li class="navigation-list-item active parent ">
+          <li class="navigation-list-item active active parent ">
             
 
             
@@ -178,9 +178,9 @@
                   
                 
                   
-                    <li class="navigation-list-item ">
+                    <li class="navigation-list-item  active">
                       
-                      <a href="https://v0-3-dev.vasern.com/docs/database-and-collection/supported-data-types.html" class="navigation-list-link">Data Types</a>
+                      <a href="https://v0-3-dev.vasern.com/docs/database-and-collection/supported-data-types.html" class="navigation-list-link active">Data Types</a>
                       
                       
                       
@@ -561,79 +561,70 @@
       <div class="main-content">
         
           
+            <nav class="breadcrumb-nav">
+              <ol class="breadcrumb-nav-list">
+                
+                  <li class="breadcrumb-nav-list-item"><a href="https://v0-3-dev.vasern.com/docs/database-and-collection/database-and-collection.html">Database and Collection</a></li>
+                
+                <li class="breadcrumb-nav-list-item"><span>Data Types</span></li>
+              </ol>
+            </nav>
+          
         
         <div class="page-content body__col">
-          <h1>Getting Started</h1>
-          
+          <h1>Data Types</h1>
+          <p>Data types are used to define property’s type when writting Document schema.
+Currently, Vasern supports:</p>
+
+<ul>
+  <li>Basic data types includes <code class="highlighter-rouge">string</code>, <code class="highlighter-rouge">int</code>, <code class="highlighter-rouge">double</code>, <code class="highlighter-rouge">datetime</code>, and <code class="highlighter-rouge">reference</code> using <code class="highlighter-rouge">#</code> followed by schema’s <code class="highlighter-rouge">name</code>.</li>
+  <li>Each type also has its characteristic <code class="highlighter-rouge">optional using "?"</code>, and <code class="highlighter-rouge">list using "[]"</code></li>
+</ul>
+
+<p>To help you better understand about using data types in the schema, we will use <code class="highlighter-rouge">Todo use case</code> as an example. Then explains about data types used.</p>
+
+<h2 id="todo-use-case">Todo use case</h2>
+
+<p>For now, we will only focus about the schema definition <code class="highlighter-rouge">props</code> in this example.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">TodoSchema</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Todos"</span><span class="p">,</span>
+    <span class="na">props</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">name</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span>
+        <span class="na">note</span><span class="p">:</span> <span class="s2">"?string"</span><span class="p">,</span>
+        <span class="na">notifyOn</span><span class="p">:</span> <span class="s2">"?datetime"</span><span class="p">,</span>
+        <span class="na">completed</span><span class="p">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
+        <span class="na">parent</span><span class="p">:</span> <span class="s2">"#Todos"</span><span class="p">,</span>
+        <span class="na">assignedTo</span><span class="p">:</span> <span class="s2">"[]#User"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="basic-data-types">Basic data types</h2>
+
+<p>In the above example, basic data types are:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">string</code>, used by <code class="highlighter-rouge">name</code>, <code class="highlighter-rouge">note</code></li>
+  <li><code class="highlighter-rouge">datetime</code>, used by <code class="highlighter-rouge">notifyOn</code></li>
+  <li><code class="highlighter-rouge">boolean</code>, used by <code class="highlighter-rouge">completed</code></li>
+  <li><code class="highlighter-rouge">#</code> indicate <code class="highlighter-rouge">reference</code>, used by <code class="highlighter-rouge">parent</code> and <code class="highlighter-rouge">assignedTo</code>.</li>
+</ul>
+
+<h2 id="type-characteristic">Type characteristic</h2>
+
+<ul>
+  <li><code class="highlighter-rouge">?</code> indicates <code class="highlighter-rouge">optional</code>, which allow value to be <code class="highlighter-rouge">undefined</code>, used by <code class="highlighter-rouge">note</code>, and <code class="highlighter-rouge">notifyOn</code>.</li>
+  <li><code class="highlighter-rouge">[]</code> indicates <code class="highlighter-rouge">list</code>, which contains a list of basic types, used by <code class="highlighter-rouge">assignedTo</code></li>
+</ul>
+
+<p>Note: Do not provide <code class="highlighter-rouge">optional</code> for <code class="highlighter-rouge">list</code>, as a <code class="highlighter-rouge">list</code> length starts from <code class="highlighter-rouge">0</code></p>
+
+<h1 id="whats-next">What’s next</h1>
+
+<p>Learn how to <a href="write-schema.md">write schema and create Vasern instance</a></p>
 
 
-          
-          <hr>
-          <h2 class="text-delta">Table of contents</h2>
-          
-          <ul>
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-              <li>
-                <a href="https://v0-3-dev.vasern.com/docs">Introduction</a>
-              </li>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-              <li>
-                <a href="https://v0-3-dev.vasern.com/docs/getting-started/quick-start.html">1 Minute Quick Start</a>
-              </li>
-              
-            
-              
-            
-              
-              <li>
-                <a href="https://v0-3-dev.vasern.com/docs/getting-started/install-vasern.html">Installation</a>
-              </li>
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-              
-            
-          </ul>
           
         </div>
       </div>
