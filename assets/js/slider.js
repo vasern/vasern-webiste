@@ -119,4 +119,4 @@ function initPageSlider(element) {
 }
 
 initSlider(document.querySelector("#mediaSlider"));
-initPageSlider(document.querySelector(".page__slider"))
+// initPageSlider(document.querySelector(".page__slider"))

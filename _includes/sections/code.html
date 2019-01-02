@@ -13,7 +13,7 @@ $ npm install vasern --save
             </li>
             <li>
                 <label>Setup your database</label>
-<div class="block_items page__slider">
+<div class="block_items">
         <!-- BLOCK: Setup -->
         <div data-name="setup_ps" data-label="Option 1. Pre-define database" class="block__item">
 {% highlight js lineos %}
@@ -40,9 +40,8 @@ var VasernDB = new Vasern({
 {% endhighlight %}
         </div>
 
-        <!-- BLOCK: Code -->
-        <div data-name="code_ps" data-label="Option 2. Freely create collections" class="block__item active">
-{% highlight js lineos %}
+        <!-- <div data-name="code_ps" data-label="Option 2. Freely create collections" class="block__item active">
+
 import Vasern, { types } from 'vasern';
 var VasernDB = new Vasern();
 
@@ -64,10 +63,9 @@ VasernDB.createCollection({
         author: types.ref('Users')
    }
 });
-
-
-{% endhighlight %}
-        </div>
+ </div>
+-->
+       
     </div>
             </li>
             <li>

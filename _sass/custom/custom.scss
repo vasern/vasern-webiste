@@ -115,7 +115,7 @@ a {
     top: 0;
     width: 100%;
     z-index: 999;
-    background-color: rgba(38, 50, 56, .94) !important;
+    background-color: rgba(38, 50, 56, .98) !important;
     display: flex;
 
     @include phone() {
@@ -234,8 +234,10 @@ a {
             background-image: unset;
             margin-left: 1rem;
             padding-bottom: 5px;
-            color: $white;//$grey-dk-300;
+            color: $white;
             font-weight: 500;
+            text-transform: uppercase;
+            font-size: .8em;
         }
     }
 }
@@ -581,7 +583,7 @@ ol {
     border-left: 1px solid $line-lt-100;
 
     @include tablet() {
-        font-size: 16px;
+        // font-size: 14px;
         margin-left: 1em;
         padding-left: 1em;
     }

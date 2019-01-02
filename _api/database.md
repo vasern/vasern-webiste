@@ -4,7 +4,7 @@ order: 1
 
 ## Database
 
-### createCollection
+<!-- ### createCollection
 
 Create a new collection
 
@@ -22,7 +22,7 @@ var peopleCollection = VasernDB.createCollection({
 
 **Return**: Collection
 
----
+--- -->
 
 ### collect
 
