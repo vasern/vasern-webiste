@@ -1,7 +1,7 @@
 ---
 layout: default
 id: vasern-query-language
-title: Vasern Query Language
+title: Filter Records with Query
 nav_order: 7
 parent: Work with Collections
 ---

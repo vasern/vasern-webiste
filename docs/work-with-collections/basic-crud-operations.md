@@ -1,7 +1,7 @@
 ---
 layout: default
 permalink: basic-crud-operation
-title: Basic CRUD operations
+title: Write and Read Records
 nav_order: 6
 parent: Work with Collections
 ---

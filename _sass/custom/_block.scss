@@ -98,9 +98,19 @@
     }
 
     ul {
-        padding-inline-start: 1em;
+        padding-inline-start: 0;
         font-size: .9em;
         font-weight: 200;
+        li { 
+            display: block;
+            a {
+                font-weight: 600;
+                font-size: 13px;
+                margin-bottom: 16px;
+                letter-spacing: .2px;
+                display: block;
+            }
+        }
     }
 }
 
@@ -108,6 +118,7 @@
 
     ul {
         margin-bottom: 1.6em;
+        list-style: none;
 
         @include tablet() {
             margin-bottom: unset;
@@ -117,9 +128,14 @@
     > li > label {
         font-weight: 500;
         padding-bottom: 5px;
-        margin-bottom: .4em;
-        border-bottom: 1px solid $line-lt;
+        margin-bottom: 18px;
         display: block;
+        text-transform: uppercase;
+        opacity: .6;
+        font-size: 12px;
+        font-weight: bold;
+        font-family: $font-sans;
+        letter-spacing: .7px;
     }
 
     a {
