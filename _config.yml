@@ -44,9 +44,6 @@ aux_links:
     url: "/api"
   - "Docs":
     url: "/docs"
-  - "GitHub":
-    url: "https://github.com/vasern/vasern"
-    icon: "github-logo"
 
 destination: ../master
 include: ['CNAME']
@@ -61,6 +58,7 @@ excerpt_separator: <!--more-->
 install_url: docs/getting-started/install-vasern.html
 tagline: Fast and open source database
 tagdesc: Vasern let developers quickly setup database for React Native apps. It’s fast, lightweight, and open source.
+github_url: https://github.com/vasern/vasern
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

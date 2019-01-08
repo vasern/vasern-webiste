@@ -22,11 +22,6 @@ a {
     text-decoration: none;
     background-image: unset !important;
 }
-// .side-bar
-// ,.site-title
-// ,.site-footer {
-//     background-color: $orange-lt-000;
-// }
 
 .top {
     margin-top: 31px;
@@ -117,8 +112,49 @@ a {
     top: 0;
     width: 100%;
     z-index: 999;
-    background-color: $bg !important; //rgba(38, 50, 56, .98)
     display: flex;
+    transition: 300ms ease-in;
+
+    &:not(.header__dark) {
+        box-shadow: 0 0 10px $line-dk;
+
+        .search {
+            background: rgba(0,0,0,0.03);
+        }
+        .search-input-wrap input {
+            color: $text-dk;
+        }
+        .search-input-wrap input::placeholder {
+            color: rgba(0,0,0,0.4);
+        }
+        .search-input-wrap g {
+            fill: rgba(0,0,0,0.4);
+        }
+
+        .site__category {
+            border-left-color: $line-dk;
+        }
+    }
+
+    &.header__dark {
+        background-color: $bg !important;
+
+        .site-title {
+            color: $white;
+        }
+
+        .search {
+            background: rgba(0,0,0,0.2);
+        }
+
+        .regular-text a {
+            color: $white;
+        }
+
+        .search-input-wrap input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+    }
 
     @include phone() {
         flex-direction: column;
@@ -164,7 +200,6 @@ a {
         flex-direction: row;
         align-items: center;
         padding-top: 0;
-        color: $white;
         font-weight: bold;
 
         img.page-logo {
@@ -178,7 +213,6 @@ a {
     }
 
     .search {
-        background: rgba(0,0,0,0.2);
         font-size: 13px !important;
 
         &:not(.not__mobile) {
@@ -195,10 +229,6 @@ a {
     .search-input-wrap input  {
         background: transparent;
         color: $white;
-    }
-
-    .search-input-wrap input::placeholder {
-        color: rgba(255,2552,255,0.5);
     }
 
 }
@@ -230,16 +260,14 @@ a {
 
     @include tablet() {
         flex-direction: row;
-        align-items: center;
 
         a {
             margin-left: 1rem;
             padding-bottom: 5px;
-            color: #fff;
-            font-weight: 500;
+            color: $text-dk;
+            font-weight: 600;
             font-size: 13px;
             text-transform: uppercase;
-            letter-spacing: .6px;
         }
     }
 }
@@ -255,7 +283,7 @@ a:not([class])
 }
 
 a:not([class]):hover {
-    opacity: .7;
+    color: $t-primary;
 }
 
 .pinned__nav {
@@ -276,8 +304,7 @@ a:not([class]):hover {
     }
 
     .page-wrap > .side-bar  {
-        background-color: #fafafa; 
-        border-right: unset;
+        background-color: #fff;
     }
 
     .page-wrap, .main-content-wrap {
@@ -331,7 +358,7 @@ a:not([class]):hover {
 // index
 
 .header {
-    background: $bg;
+    background-color: $bg;
     color: $text;
     position: relative;
     overflow: hidden;
@@ -485,7 +512,7 @@ a:not([class]):hover {
 }
 
 footer {
-    background: $bg;
+    background: $t-bg-lt;
     color: $text;
     padding: 1.4em 1em;
     // z-index: 9;
@@ -497,9 +524,8 @@ footer {
     .copyright {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         padding: 1.6em;
 
         @include desktop() {
@@ -509,24 +535,32 @@ footer {
         &:hover {
             opacity: .8;
         }
-
-        span {
-            display: block;
-            text-transform: uppercase !important;
-            font-weight: bold !important;
-            letter-spacing: .7px !important;
-            font-size: 12px;
-        }
     }
 
     .link-item {
         margin-top: 1.4em;
-        border-top: 1px solid $line-lt;;
+        border-top: 1px solid $line-dk;
         padding-top: 1em;
-        justify-content: flex-end;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        > span {
+            font-weight: bold !important;
+            letter-spacing: .7px !important;
+            font-size: 12px;
+            color: $text-dk;
+            text-transform: uppercase;
+        }
 
         a {
             justify-content: center;
+            flex: 1;
+            color: $t-primary;
+            span {
+                border-bottom: 1px dashed $t-primary !important;
+            }
         }
     }
 
@@ -538,8 +572,8 @@ footer {
         }
     }
 
-    a {
-        color: $text;
+    a, label {
+        color: $text-dk;
     }
 }
 
@@ -552,10 +586,6 @@ footer {
 
     .link-icon {
         margin-right: .6em;
-    }
-
-    span {
-        border-bottom: 1px $grey-lt-100 dashed;
     }
 
     &.lg {
@@ -593,7 +623,9 @@ ol {
     font-weight: normal;
     // margin-left: .4em;
     padding-left: .4em;
-    border-left: 1px solid $line-lt-100;
+    border-left: 1px solid $t-primary;
+    color: $t-primary;
+    font-weight: 500;
 
     @include tablet() {
         // font-size: 14px;

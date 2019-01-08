@@ -1,8 +1,18 @@
-<div class="page-header">
+{% if include.style=="dark" %}
+  <div class="page-header header__dark">
+  {% assign logoURL = "assets/media/vasern-blue-dark.svg" %}
+  {% assign logoTextURL = "assets/media/vasern-text.svg" %}
+  {% assign githubIconURL = "assets/media/github-logo.svg" %}
+{% else %}
+  {% assign logoURL = "assets/media/vasern-blue-dark.svg" %}
+  {% assign logoTextURL = "assets/media/vasern-text.dk.svg" %}
+  {% assign githubIconURL = "assets/media/github-logo.dk.svg" %}
+  <div class="page-header">
+{% endif %}
       <div class="side-bar">
         <a href="{{ site.url }}" class="site-title fs-6 lh-tight">
-          <img class="page-logo" src="{{ "assets/media/vasern-icon.svg" | absolute_url }}" alt="{{ site.url }}" /> 
-          <img class="page-logo-text not__mobile" height="18" src="{{ "assets/media/vasern-text.svg" | absolute_url }}"" alt="{{ site.title }}">
+          <img class="page-logo" src="{{ logoURL| absolute_url }}" alt="{{ site.url }}" /> 
+          <img class="page-logo-text not__mobile" height="18" src="{{ logoTextURL | absolute_url }}"" alt="{{ site.title }}">
           {% if page_category != nil %}
             <span class="site__category">{{ page_category }}</span>
           {% endif %}
@@ -14,16 +24,22 @@
           {% for link in site.aux_links %}
 
               {% if link.icon != nil %}
-                  <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}">
-                    <a href="{{ link.url }}" rel="noreferrer" target="_blank">
-                      <img class="link-icon" alt="Github icon" src="{{ "/assets/media/" | absolute_url }}/{{ link.icon }}.svg" />
-                    </a>
-                  </li>
+              <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}">
+                  <a href="{{ link.url }}" rel="noreferrer" target="_blank">
+                    <img class="link-icon" alt="Github icon" src="{{ "/assets/media/" | absolute_url }}/{{ link.icon }}.svg" />
+                  </a>
+                </li>
               {% else %}
                   <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}"><a href="{{ link.url }}">{{ link.first }}</a></li>
               {% endif %}
 
           {% endfor %}
+
+          <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}">
+              <a href="{{ site.github_url }}" rel="noreferrer" target="_blank">
+                <img class="link-icon" alt="Github icon" src="{{ githubIconURL | absolute_url }}" />
+              </a>
+            </li>
         </ul>
       {% endif %}
     </div>
