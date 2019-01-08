@@ -30,10 +30,15 @@
       <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
     <div class="main-content-wrap">
 
-      <div class="page-header">
+      
+  <div class="page-header header__dark">
+  
+  
+  
+
       <div class="side-bar">
         <a href="https://v0-3-dev.vasern.com" class="site-title fs-6 lh-tight">
-          <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-icon.svg" alt="https://v0-3-dev.vasern.com" /> 
+          <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-blue-dark.svg" alt="https://v0-3-dev.vasern.com" /> 
           <img class="page-logo-text not__mobile" height="18" src="https://v0-3-dev.vasern.com/assets/media/vasern-text.svg"" alt="Vasern">
           
         </a>
@@ -62,20 +67,16 @@
           
 
               
-                  <li class="d-inline-block my-0 mr-2"><a href="/docs">Docs</a></li>
+                  <li class="d-inline-block my-0"><a href="/docs">Docs</a></li>
               
 
           
 
-              
-                  <li class="d-inline-block my-0">
-                    <a href="https://github.com/vasern/vasern" rel="noreferrer" target="_blank">
-                      <img class="link-icon" alt="Github icon" src="https://v0-3-dev.vasern.com/assets/media//github-logo.svg" />
-                    </a>
-                  </li>
-              
-
-          
+          <li class="d-inline-block my-0 mr-2">
+              <a href="https://github.com/vasern/vasern" rel="noreferrer" target="_blank">
+                <img class="link-icon" alt="Github icon" src="https://v0-3-dev.vasern.com/assets/media/github-logo.svg" />
+              </a>
+            </li>
         </ul>
       
     </div>
@@ -112,7 +113,7 @@
 
       <div class="panel">
         <span class="button btn__positive btn__shadow">
-          <a>Getting Started</a>
+          <a class="temp_class"  href="https://v0-3-dev.vasern.com/docs/getting-started/install-vasern.html">Getting Started</a>
         </span>
       </div>
     </div>
@@ -314,7 +315,7 @@
             </li>
             <li>
                 <label>Setup your database</label>
-<div class="block_items page__slider">
+<div class="block_items">
         <!-- BLOCK: Setup -->
         <div data-name="setup_ps" data-label="Option 1. Pre-define database" class="block__item">
 
@@ -341,32 +342,32 @@
 
         </div>
 
-        <!-- BLOCK: Code -->
-        <div data-name="code_ps" data-label="Option 2. Freely create collections" class="block__item active">
+        <!-- <div data-name="code_ps" data-label="Option 2. Freely create collections" class="block__item active">
 
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="k">import</span> <span class="nx">Vasern</span><span class="p">,</span> <span class="p">{</span> <span class="nx">types</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">VasernDB</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vasern</span><span class="p">();</span>
+import Vasern, { types } from 'vasern';
+var VasernDB = new Vasern();
 
-<span class="nx">VasernDB</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">({</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Users'</span><span class="p">,</span>
-    <span class="na">indexes</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">firstName</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span>
-        <span class="na">lastName</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span>
-        <span class="na">yearOfBirth</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">number</span><span class="p">()</span>
-    <span class="p">}</span>
- <span class="p">});</span>
+VasernDB.createCollection({
+    name: 'Users',
+    indexes: {
+        firstName: types.string(55),
+        lastName: types.string(55),
+        yearOfBirth: types.number()
+    }
+ });
 
-<span class="nx">VasernDB</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">({</span>
-   <span class="na">name</span><span class="p">:</span> <span class="s1">'TodoItems'</span><span class="p">,</span>
-   <span class="na">indexes</span><span class="p">:</span> <span class="p">{</span>
-        <span class="na">createdOn</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">datetime</span><span class="p">(),</span>
-        <span class="na">name</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">),</span>
-        <span class="na">status</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="kr">boolean</span><span class="p">(),</span>
-        <span class="na">author</span><span class="p">:</span> <span class="nx">types</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="s1">'Users'</span><span class="p">)</span>
-   <span class="p">}</span>
-<span class="p">});</span></code></pre></figure>
-
-        </div>
+VasernDB.createCollection({
+   name: 'TodoItems',
+   indexes: {
+        createdOn: types.datetime(),
+        name: types.string(55),
+        status: types.boolean(),
+        author: types.ref('Users')
+   }
+});
+ </div>
+-->
+       
     </div>
             </li>
             <li>
@@ -383,10 +384,10 @@
     </div>
 </div>
 
-<div class="block__article">
+<div class="block">
         <div class="page_wrapper_sm block__space block__centered">
             <span class="button btn__positive">
-                <a>Install Vasern</a>
+                <a class="temp__class">Install Vasern</a>
             </span>
     
             <span class="button btn__default">
@@ -397,12 +398,9 @@
 
       <footer>
     <div class="page_wrapper block__flex">
-        
         <div class="block__col-1 copyright">
-            <img class="logo__lg" src="https://v0-3-dev.vasern.com/assets/media/vasern-icon.svg" alt="Vasern Icon" />
-            <span>© Vasern 2018</span>
+            <img class="logo__lg" src="https://v0-3-dev.vasern.com/assets/media/vasern-blue-dark.svg" alt="Vasern Icon" />
         </div>
-
         <div class="block__col-3">
             <ul class="list__vertical list__recursive__style">
                 
@@ -510,8 +508,9 @@
     </div>
             
     <div class="link-item page_wrapper">
-        <a class="lg" href="//github.com/vasern/vasern">
-            <img class="link-icon" src="https://v0-3-dev.vasern.com/assets/media/github-logo.svg" alt="Github Icon" />
+        <span>© 2019 Vasern</span>
+        <a class="lg" href="" target="_blank" rel="noreferrer noopener">
+            <img class="link-icon" src="https://v0-3-dev.vasern.com/assets/media/github-logo.blue.svg" alt="Github Icon" />
             <span>Star this project on Github</span>
         </a>
     </div>
