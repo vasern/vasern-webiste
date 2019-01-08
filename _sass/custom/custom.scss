@@ -115,11 +115,19 @@ a {
     display: flex;
     transition: 300ms ease-in;
 
+    .search {
+        background: transparent;
+        box-shadow: none;
+    }
+
     &:not(.header__dark) {
         box-shadow: 0 0 10px $line-dk;
+        background-color: $white;
 
-        .search {
-            background: rgba(0,0,0,0.03);
+        @include tablet() {
+            .search {
+                background: rgba(0,0,0,0.03);
+            }
         }
         .search-input-wrap input {
             color: $text-dk;
@@ -134,6 +142,15 @@ a {
         .site__category {
             border-left-color: $line-dk;
         }
+
+        .burger__menu span {
+            background-color: $text-dk;
+        }
+
+        .list-style-none a {
+            color: $text-dk;
+            border-bottom-color: $line-dk;
+        }
     }
 
     &.header__dark {
@@ -143,8 +160,10 @@ a {
             color: $white;
         }
 
-        .search {
-            background: rgba(0,0,0,0.2);
+        @include tablet() {
+            .search {
+                background: rgba(0,0,0,0.2);
+            }
         }
 
         .regular-text a {
@@ -155,6 +174,8 @@ a {
             color: rgba(255,255,255,0.2);
         }
     }
+
+    
 
     @include phone() {
         flex-direction: column;
@@ -273,7 +294,8 @@ a {
 }
 
 .link-icon {
-    width: 20px
+    width: 20px;
+    margin-left: 1em;
 }
 
 a:not([class])
@@ -525,8 +547,12 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: flex-start;
+        align-items: center;
         padding: 1.6em;
+
+        @include tablet() {
+            align-items: flex-start;
+        }
 
         @include desktop() {
             padding: initial;
@@ -543,8 +569,15 @@ footer {
         padding-top: 1em;
         justify-content: space-between;
         display: flex;
-        flex-direction: row;
         align-items: flex-start;
+        flex-direction: column;
+
+        @include phone() {
+            align-items: center;
+            a {
+                margin-top: 1em;
+            }
+        }
 
         > span {
             font-weight: bold !important;
@@ -561,6 +594,10 @@ footer {
             span {
                 border-bottom: 1px dashed $t-primary !important;
             }
+        }
+
+        @include tablet() {
+            flex-direction: row;
         }
     }
 
