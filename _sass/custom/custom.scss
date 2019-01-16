@@ -175,8 +175,6 @@ a {
         }
     }
 
-    
-
     @include phone() {
         flex-direction: column;
     }
@@ -252,6 +250,10 @@ a {
         color: $white;
     }
 
+    .list-style-none a:hover {
+        opacity: .7;
+    }
+
 }
 
 .page-content {
@@ -259,10 +261,69 @@ a {
     h4 {
         color: $blue-100;
         font-weight: bold;
+        margin: 2.6em 0 1.8em 0;
     }
 
     a {
         color: $blue-100;
+    }
+
+    p, li {
+        line-height: 1.8em;
+    }
+
+    .block__msg {
+        padding: 1.2em 1.8em;
+        margin: 1.8em 0;
+        border-radius: 3px;
+        font-size: 14px;
+        border-width: 1px;
+        border-style: solid;
+
+        &.info {
+            background: #f3faff;
+            color: #0f5892;
+            border-color: #afcae0;
+
+            .btn__info {
+                background: $white;
+            }
+        }
+        &.warning {
+            background: oldlace;
+            font-style: italic;
+            color: #8c5b13;
+            border-color: #d2c5ab;
+        }
+
+        .title {
+            margin-top: .6em;
+            font-size: 1.4em !important;
+            font-weight: 600;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .button__flex {
+            padding: 1em 0;
+        }
+
+        b {
+            font-weight: 600
+        }
+    }
+
+    @include desktop() {
+        img {
+            width: 640px;
+            margin: auto
+        }
     }
 }
 

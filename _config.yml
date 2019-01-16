@@ -37,13 +37,13 @@ fenced_code_blocks: true
 
 aux_links:
   - "Blog":
-    url: "/blog"
+    url: "/blog.html"
   - "Examples":
     url: "/docs/examples.html"
   - "API":
-    url: "/api"
+    url: "/api.html"
   - "Docs":
-    url: "/docs"
+    url: "/docs.html"
 
 destination: ../master
 include: ['CNAME']

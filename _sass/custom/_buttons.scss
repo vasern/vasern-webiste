@@ -1,9 +1,17 @@
+.button__flex {
+    display: flex;
+    span {
+        flex: 1;
+        text-align: center;
+    }
+}
 
 .button {
     border-radius: 3px;
     transition: ease-in .2s;
     display: inline-block;
     cursor: pointer;
+    margin-bottom: 2.4em;
 
     a {
         // text-transform: uppercase;
@@ -25,8 +33,6 @@
         transform: translateX(.2em);
     }
 
-    margin-bottom: 2.4em;
-
     @include tablet() {
         &:not(:first-child) {
             margin-left: 2em;
@@ -37,7 +43,7 @@
     &.btn__default {
         border: 2px solid $t-primary;
         a {
-            padding: calc(1em - 4px) 3em;
+            padding: calc(1em - 2px) 3em;
         }
     }
     
@@ -70,5 +76,32 @@
 
     &.btn__shadow {
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    &.btn__info {
+        background: #90b4d01c;
+        border: 1px solid #90b4d0a3;
+        
+        a, a:hover {
+            color: #155a90;
+            opacity: 1;
+        }
+        a:after {
+            content: "";
+            display: none;
+        }
+
+        &:hover {
+            border-color: #155a90;
+        }
+    }
+
+    &.btn__sm {
+        a {
+            padding: .8em 1.8em;
+            font-weight: 500;
+            
+        }
+        
     }
 }

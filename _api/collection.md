@@ -7,10 +7,18 @@ order: 2
 ### insert
 
 ```js
+Collection.insert( record: Object )
+=> ResultObject
+```
+
+```js
 VasernDB.collect("people").insert({
     firstName: "John",
     lastName: "Citizen"
-}) => ResultObject
+}).asPromise()
+.then(rs => {
+    console.log(rs);
+})
 ```
 
 ---
