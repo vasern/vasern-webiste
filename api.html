@@ -6,7 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
-  <title>API References - Vasern</title>
+  <title>API References - Vasern API</title>
   <link rel="stylesheet" href="https://v0-3-dev.vasern.com/assets/css/just-the-docs.css">
   
   <script src="https://v0-3-dev.vasern.com/assets/js/vendor/lunr.min.js"></script>
@@ -49,7 +49,7 @@
 
       <div class="side-bar">
         <a href="https://v0-3-dev.vasern.com" class="site-title fs-6 lh-tight">
-          <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-blue-dark.svg" alt="https://v0-3-dev.vasern.com" /> 
+          <img class="page-logo" src="https://v0-3-dev.vasern.com/assets/media/vasern-blue.svg" alt="https://v0-3-dev.vasern.com" /> 
           <img class="page-logo-text not__mobile" height="18" src="https://v0-3-dev.vasern.com/assets/media/vasern-text.dk.svg"" alt="Vasern">
           
             <span class="site__category">API</span>
@@ -62,7 +62,7 @@
           
 
               
-                  <li class="d-inline-block my-0 mr-2"><a href="/blog">Blog</a></li>
+                  <li class="d-inline-block my-0 mr-2"><a href="/blog.html">Blog</a></li>
               
 
           
@@ -74,13 +74,13 @@
           
 
               
-                  <li class="d-inline-block my-0 mr-2"><a href="/api">API</a></li>
+                  <li class="d-inline-block my-0 mr-2"><a href="/api.html">API</a></li>
               
 
           
 
               
-                  <li class="d-inline-block my-0"><a href="/docs">Docs</a></li>
+                  <li class="d-inline-block my-0"><a href="/docs.html">Docs</a></li>
               
 
           
@@ -134,43 +134,6 @@
           
             <hr />
             <div class="api__section">
-              <h2 id="data-types">Data types</h2>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">types</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="string">string</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="boolean">boolean</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="kr">boolean</span><span class="p">()</span>
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="number">number</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">number</span><span class="p">()</span>
-</code></pre></div></div>
-
-<hr />
-
-<h3 id="ref">ref</h3>
-
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="s1">'Users'</span><span class="p">)</span>
-</code></pre></div></div>
-
-            </div>
-          
-            <hr />
-            <div class="api__section">
               <h2 id="database">Database</h2>
 
 <!-- ### createCollection
@@ -193,7 +156,37 @@ var peopleCollection = VasernDB.createCollection({
 
 --- -->
 
+<h3 id="constructor">constructor</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Vasern</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="props-object-include">Props (Object) include</h4>
+
+<ul>
+  <li><strong><em>props.schemas (Array&lt;Object&gt;)</em></strong>: a list of <code class="highlighter-rouge">Document</code> schema in any order.</li>
+  <li><strong><em>props.version (int)</em></strong>: version of <code class="highlighter-rouge">Document</code>, <code class="highlighter-rouge">1</code> by default.</li>
+</ul>
+
+<h4 id="example">Example</h4>
+
+<p>We already created <code class="highlighter-rouge">TodoSchema</code> and <code class="highlighter-rouge">UserModel</code> above. Let’s create a <code class="highlighter-rouge">Vasern</code> instance</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vasern</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">VasernDB</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vasern</span><span class="p">({</span>
+    <span class="na">schemas</span><span class="p">:</span> <span class="p">[</span><span class="nx">UserModel</span><span class="p">,</span> <span class="nx">TodoSchema</span><span class="p">],</span>
+    <span class="na">version</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
 <h3 id="collect">collect</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Vasern</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span> <span class="nx">collectionName</span><span class="p">:</span> <span class="nx">string</span> <span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">Collection</span>
+</code></pre></div></div>
+
+<p>Get a collection</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s1">'People'</span><span class="p">)</span>
 </code></pre></div></div>
@@ -203,7 +196,10 @@ var peopleCollection = VasernDB.createCollection({
 <h3 id="removeallcollections">removeAllCollections</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
+<span class="o">=&gt;</span> <span class="k">void</span>
 </code></pre></div></div>
+
+<p>Remove all records in all collections</p>
 
             </div>
           
@@ -213,10 +209,17 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="insert">insert</h3>
 
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
     <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Citizen"</span>
-<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<span class="p">}).</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rs</span><span class="p">);</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
@@ -282,6 +285,47 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="aspromise">asPromise</h3>
 
+<hr />
+
+<h3 id="subscribe">subscribe</h3>
+
+            </div>
+          
+            <hr />
+            <div class="api__section">
+              <h2 id="data-types">Data types</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">types</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="string">string</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">string</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="boolean">boolean</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="kr">boolean</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="number">number</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">number</span><span class="p">()</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="ref">ref</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">ref</span><span class="p">(</span><span class="s1">'Users'</span><span class="p">)</span>
+</code></pre></div></div>
+
             </div>
           
         </div>
@@ -293,7 +337,7 @@ var peopleCollection = VasernDB.createCollection({
   <footer>
     <div class="page_wrapper block__flex">
         <div class="block__col-1 copyright">
-            <img class="logo__lg" src="https://v0-3-dev.vasern.com/assets/media/vasern-blue-dark.svg" alt="Vasern Icon" />
+            <img class="logo__lg" src="https://v0-3-dev.vasern.com/assets/media/vasern-grey.svg" alt="Vasern Icon" />
         </div>
         <div class="block__col-3">
             <ul class="list__vertical list__recursive__style">
@@ -402,8 +446,8 @@ var peopleCollection = VasernDB.createCollection({
     </div>
             
     <div class="link-item page_wrapper">
-        <span>© 2019 Vasern</span>
-        <a class="lg" href="" target="_blank" rel="noreferrer noopener">
+        <span>Copyright © 2019 Vasern</span>
+        <a class="lg" href="https://github.com/vasern/vasern" target="_blank" rel="noreferrer noopener">
             <img class="link-icon" src="https://v0-3-dev.vasern.com/assets/media/github-logo.blue.svg" alt="Github Icon" />
             <span>Star this project on Github</span>
         </a>

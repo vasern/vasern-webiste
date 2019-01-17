@@ -2,10 +2,17 @@
 
 <h3 id="insert">insert</h3>
 
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
     <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Citizen"</span>
-<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<span class="p">}).</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rs</span><span class="p">);</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
