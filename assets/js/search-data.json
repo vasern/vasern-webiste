@@ -99,41 +99,48 @@
   },
   "14": {
     "id": "14",
+    "title": "Try Vasern online",
+    "content": "",
+    "url": "https://v0-3-dev.vasern.com/playground.html",
+    "relUrl": "/playground.html"
+  },
+  "15": {
+    "id": "15",
     "title": "Filter Records with Query",
     "content": "Queries are used to get and filter records through a Queryable object. Which uses lodash to work with Array records. The following contents are a list of available query methods.Work with QueryableQueryable contains a set of immutable records and separated from the Document records. The following code demonstrates how to create a Queryable object.import { Queryable } from 'vasern';const queryObj = new Queryable(data);Get recordFind and return a record that match with lookupQuery.Queryable.get(lookupQuery)Arguments                              **_lookupQuery ( string          Object )_**                            (string): match record id with string value      (Object): match record properties and values with Object properties and values      Return  Object: object that match with lookupQuery  undefined if not foundExamplevar foundRecord = Queryable.get({ id: &quot;5bc592cacdAsassfs000ddddBBdbcdfb&quot; });Filter recordsFind and return a list of records that match with lookupQuery.Queryable.filter(lookupQuery)Arguments  lookupQuery ( Object ): match record properties and values with Object properties and valuesReturn  Array&amp;lt;Object&amp;gt;: a list of records that match with lookupQueryExamplevar records = Queryable.filter({ completed: true });Exclude recordsExcludes records that match with lookupQuery from current Queryable dataset.Queryable.exclude(lookupQuery)Arguments  lookupQuery ( Object ): match record properties and values with Object properties and valuesReturn  Array&amp;lt;Object&amp;gt;: a list of records that match with lookupQueryExamplevar records = Queryable.exclude({ completed: true });Order recordsRe-order records list by key.Queryable.order(key, asc = true)Arguments  key ( string ): property name  asc (boolean): allow order ascending, set to false for decending order.Return  Array&amp;lt;Object&amp;gt;: a list of reorderd recordsExamplevar records = Queryable.filter({ completed: true });What’s next?Learn about Event listeners",
     "url": "https://v0-3-dev.vasern.com/docs/work-with-collections/queries.html",
     "relUrl": "/docs/work-with-collections/queries.html"
   },
-  "15": {
-    "id": "15",
+  "16": {
+    "id": "16",
     "title": "Quickstart",
     "content": "  Before you start: make sure you have installed VasernSetting up databaseTo work with data, you need to setup a Vasern database instance. A database instance describesthe shape of collections, their keys and validation mode. Read more about database modelThe following example demonstrate how to setup a database with a simple schemaimport Vasern, { types } from 'vasern';const VasernDB = new Vasern({    schemas: [{        name: &quot;Users&quot;,        validation: 'strict',        keys: {            firstName: types.string(55),            lastName: types.string(55)        }    }, {        name: &quot;TodoItems&quot;,        keys: {            name: types.string(55),            status: types.enum('STATUS', 'completed', 'not_completed'),            asignedTo: types.ref(&quot;Users&quot;)        }    }]});Insert dataData can be inserted to collection as object, or Array of object.The example below show how to insert data into Users collection.Note: method .asProxy() will immediately return record with { status: &quot;inserting&quot; }.var peter = VasernDB.collect(&quot;Users&quot;).insert({        firstName: &quot;Peter&quot;,        lastName: &quot;Griffin&quot;    }).asProxy().first();When inserting data with reference field (like assignedTo in this example),the value can be either the reference object or its id;var peterTasks = VasernDB.collect(&quot;TodoItems&quot;)    .insert([        { name: 'Go shopping', status: 'not_completed', assignedTo: peter },        { name: 'Drink at the Clam', status: 'not_completed', assignedTo: peter }    ]).run();Query dataThe following query example will return all TodoItems records that has assignedTo equal Peter.(Reference fields will automatically be fetched and compare using its id)VasernDB.collect(&quot;TodoItems&quot;)    .filter({         assignedTo: { firstName: 'Peter' },        status: 'completed'    })    .asPromise()    .then(result =&amp;gt; console.log(&quot;Items&quot;, result.items) })Or using count to get number of records that match with query filterVasernDB.collect(&quot;TodoItems&quot;)    .count({ status: 'completed' })    .then(result =&amp;gt; console.log(&quot;Total items&quot;, result.total));What’s next? Congrats, you’ve learned the basics of using Vasern. If not already, install Vasern into your existing React Native project.Or learn more about data types supported in Vasern.",
     "url": "https://v0-3-dev.vasern.com/docs/getting-started/quickstart.html",
     "relUrl": "/docs/getting-started/quickstart.html"
   },
-  "16": {
-    "id": "16",
+  "17": {
+    "id": "17",
     "title": "Support and Feedback",
     "content": "For any issues, bugs found, or ask for help and contribution, feel free to file an issue and we will try to help as soon as we can.For discusion and quick chat, join our Slack channel. You can send an email to .If you love us, we’d be super excited if you share Vasern on your twitter, facebook or any social platform with hashtag #vaserndb. Also, follow us on Twitter",
     "url": "https://v0-3-dev.vasern.com/docs/faq/support-and-feedback.html",
     "relUrl": "/docs/faq/support-and-feedback.html"
   },
-  "17": {
-    "id": "17",
+  "18": {
+    "id": "18",
     "title": "Example - Vasern Todo",
     "content": "This example implements a simple todo list app using Vasern as data storage and React Native. It demonstrates basic CRUD operations of Vasern (get, insert, update, delete data).Features  Add, delete todo item  Add, delete sub todo itemDemoInstallation  Clone or download Vasern from Github repository into your computer.      Navigate to examples/vasern-todo and run command from :          Install npm dependencies, (1-3 mins)          $ npm install            Link Vasern using rnpm, or follow instruction on our main “README.md” file          $ rnpm link vasern              Run project.          For iOS, Signing certificate then run the app on your simulator using xCode Project locate at “examples/vasern-todo/ios” or using command react-native run-ios.      For Android, run command react-native run-android.      Other libraries used in this example  react-native-spacer - a keyboard avoding wrapper.Troubleshooting      React Native 0.57 on Android, java.lang.String cannot be cast to com.facebook.... View solution        In some cases, try to clear caches (and on Android, remove android/build and android/.gradle).  ",
     "url": "https://v0-3-dev.vasern.com/docs/examples/todo-example.html",
     "relUrl": "/docs/examples/todo-example.html"
   },
-  "18": {
-    "id": "18",
+  "19": {
+    "id": "19",
     "title": "Collection",
     "content": "This page will explain Vasern, Document to give you a brief understanding.DatabaseVasern data storage itself is a linked Documents. Vasern object manages Documents, ensure their states and consistency. Currently, Vasern provides methods that help to get data across Documents.CollectionUnderneath, each Document is a list of sequential key-value storage engine. It operates separately and links with other Documents by a reference id (like the foreign key).Records{      &quot;Users&quot;: [{        &quot;id&quot;: 2,        &quot;firstName&quot;: &quot;Bryan&quot;,        &quot;lastName&quot;: &quot;Griffin&quot;,        &quot;jobTitle&quot;: [&quot;Writer&quot;,&quot;Composer&quot;]    }]}RelationshipCollection relationships are defined at application level, through database schema.Which means the database and collection don’t know when a record containsa reference to other record.A drawback of collection relationship in Vasern is when deleting a record,if its reference exsited in some other records, the database will not automatically removethe reference idTo define a relationship in collection, use types.ref( refCollectionName ). For example:import { types } from 'vasern';var TodoSchema = {    name: &quot;TodoItems&quot;    keys: {        ...,        assignTo: types.ref(&quot;People&quot;)    }}You can either use the reference object or its id as value of the reference field. For example:VasernDB.collect(&quot;Users&quot;)    .get({ name: &quot;Peter Griffin&quot; })    .asPromise().then(result =&amp;gt; {        let peter = result.first();        VasernDB.collect(&quot;TodoItems&quot;).insert({ ..., assignTo: peter }).run();    })What’s next? Learn about Vasern installation",
     "url": "https://v0-3-dev.vasern.com/docs/database-and-collection/vasern-collection.html",
     "relUrl": "/docs/database-and-collection/vasern-collection.html"
   },
-  "19": {
-    "id": "19",
+  "20": {
+    "id": "20",
     "title": "Work with Collections",
     "content": "",
     "url": "https://v0-3-dev.vasern.com/docs/work-with-collections/work-with-collections.html",

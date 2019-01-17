@@ -38,3 +38,20 @@ if (isScreen('mobile')) {
 
     menuItems.insertBefore(element, menuItems.firstElementChild);
 }
+
+if (( el = document.querySelector(".site__category") )) {
+    var section = el.innerText.toLowerCase();
+
+    if (section == "docs" && document.location.href.indexOf("examples") > -1) {
+        document.querySelector(`[data-name=example]`).classList.add("item__active");
+    } else {
+        document.querySelector(`[data-name=${section}]`).classList.add("item__active");
+    }
+}
+
+
+if (!localStorage.getItem("category_viewed")) {
+    document
+        .querySelector("[data-name=playground]")
+        .appendChild(createElement("span"));
+}
