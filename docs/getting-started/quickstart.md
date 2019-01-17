@@ -16,16 +16,18 @@ To work with data, you need to setup a Vasern database instance. A database inst
 the shape of collections, their keys and validation mode. 
 [Read more about database model](../database-and-collection/database-model.html)
 
+The following example demonstrate how to setup a database with a simple schema
+
 ```js
 import Vasern, { types } from 'vasern';
 const VasernDB = new Vasern({
     schemas: [{
         name: "Users",
+        validation: 'strict',
         keys: {
             firstName: types.string(55),
             lastName: types.string(55)
-        },
-        validation: 'strict'
+        }
     }, {
         name: "TodoItems",
         keys: {

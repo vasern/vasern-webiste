@@ -19,7 +19,7 @@ permalink: /docs
 
 <div class="button__flex">
 <span class="button btn__info btn__sm">
-    <a href="{% link docs/getting-started/quick-start.md %}">Quickstart</a>
+    <a href="{% link docs/getting-started/quickstart.md %}">Quickstart</a>
 </span>
 <span class="button btn__info btn__sm">
     <a href="{% link docs/getting-started/install-vasern.md %}">Install Vasern</a>
