@@ -47,17 +47,22 @@ $screen-xl-min: 1200px;
 }
 
 .mobile__only {
-    display: initial;
+  display: initial;
 
-    @include tablet() {
-        display: none;
-    }
+  @include tablet() {
+    display: none;
+  }
 }
 
 .not__mobile {
-    display: none;
+  display: none;
 
-    @include tablet() {
-        display: initial;
-    }
+  @include tablet() {
+    display: initial;
+  }
+}
+
+@mixin transition($time: 200ms) {
+  transition: $time ease-in;
+  -webkit-transition: $time ease-in;
 }

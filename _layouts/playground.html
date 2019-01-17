@@ -1,0 +1,55 @@
+{% assign page_category = "Playground" %}
+<!DOCTYPE html>
+
+<html lang="en-us">
+{% include head.html title="Vasern" %}
+
+  <div class="page-wrap">
+    <div class="main-content-wrap">
+
+      {% include top-nav.html %}
+      
+      <div class="main-content-wrap page page__split">
+        <div class="page__block">
+          <img src="{{ "assets/media/basketball.svg" | absolute_url }}" class="head__img" width="100%"/>
+        </div>
+        <div class="page__block">
+          <div class="block__container">
+          <h1 class="text__centered">Playground <small>Coming soon</small></h1>
+          
+          <p class="text__centered">
+            <small><i>
+              We're building playground as a method to test out Vasern Server
+              before release to the public.
+              Help us by signing up and trying out <b>playground</b>
+            </i></small>
+          </p>
+
+          <form class="form form__vertical text__centered">
+
+            <div class="group">
+              <input placeholder="Name" />
+            </div>
+
+            <div class="group">
+              <input placeholder="Email" type="email" />
+            </div>
+
+            <div class="panel">
+              <span id="playground-submit-btn" class="button btn__positive">
+                <a class="no__class">Signup</a>
+              </span>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      </div>
+
+      {% include sections/footer.html %}
+
+      <script src="{{ "/assets/js/playground.js?v=0.1" | absolute_url }}"></script>
+    </div>
+  </div>
+</body>
+</html>

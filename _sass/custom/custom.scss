@@ -166,7 +166,7 @@ a {
             }
         }
 
-        .regular-text a {
+        .regular-text li:not(.item__active) a {
             color: $white;
         }
 
@@ -322,7 +322,7 @@ a {
     @include desktop() {
         img {
             width: 640px;
-            margin: auto
+            margin: auto;
         }
     }
 }
@@ -348,8 +348,36 @@ a {
             padding-bottom: 5px;
             color: $text-dk;
             font-weight: 600;
-            font-size: 13px;
-            letter-spacing: .3px;
+            padding: 19px 4px;
+            text-transform: uppercase;
+            font-size: 12px;
+        }
+    }
+
+    li {
+        position: relative;
+    }
+    li a {
+        padding: 19px 4px;
+    }
+    .item__active a {
+        color: $t-primary !important;
+        border-bottom: 2px solid;
+        border-bottom-color: #065FD4 !important;
+    }
+
+    .item__badge {
+        padding-right: 5px;
+
+        span {
+            height: 6px;
+            width: 6px;
+            position: absolute;
+            background: #FF5722;
+            border-radius: 10px;
+            display: inline-block;
+            top: 2px;
+            right: 0;
         }
     }
 }

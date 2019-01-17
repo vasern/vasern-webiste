@@ -14,7 +14,7 @@
           <img class="page-logo" src="{{ logoURL| absolute_url }}" alt="{{ site.url }}" /> 
           <img class="page-logo-text not__mobile" height="18" src="{{ logoTextURL | absolute_url }}"" alt="{{ site.title }}">
           {% if page_category != nil %}
-            <span class="site__category">{{ page_category }}</span>
+            <!-- <span class="site__category">{{ page_category }}</span> -->
           {% endif %}
         </a>
       </div>
@@ -30,7 +30,16 @@
                   </a>
                 </li>
               {% else %}
-                  <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}"><a href="{{ link.url }}">{{ link.first }}</a></li>
+                  {% if link.badge %}
+                  <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %} item__badge" data-name="{{ link.id }}">
+                      <a href="{{ link.url }}">{{ link.first }}</a>
+                      <!-- <span></span> -->
+                  </li>
+                  {% else %}
+                  <li class="d-inline-block my-0{% unless forloop.last %} mr-2{% endunless %}" data-name="{{ link.id }}">
+                    <a href="{{ link.url }}">{{ link.first }}</a>
+                  </li>
+                  {% endif %}
               {% endif %}
 
           {% endfor %}

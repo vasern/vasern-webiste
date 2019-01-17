@@ -15,10 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 title: Vasern
 email: help@vasern.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+description: NoSQL database for React Native. Fast and Powerful
 # baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://v0-3-dev.vasern.com" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: vaserndb
@@ -36,14 +33,22 @@ highlighter: rouge
 fenced_code_blocks: true
 
 aux_links:
+  - "Playground":
+    url: "/playground.html"
+    badge: true
+    id: "playground"
   - "Blog":
     url: "/blog.html"
+    id: "blog"
   - "Examples":
     url: "/docs/examples.html"
+    id: "example"
   - "API":
     url: "/api.html"
+    id: "api"
   - "Docs":
     url: "/docs.html"
+    id: "docs"
 
 destination: ../master
 include: ['CNAME']
@@ -56,7 +61,7 @@ collections:
 # Custom variables
 excerpt_separator: <!--more--> 
 install_url: docs/getting-started/install-vasern.html
-tagline: Fast and open source database
+tagline: NoSQL database for React Native
 tagdesc: Vasern let developers quickly setup database for React Native apps. It’s fast, lightweight, and open source.
 github_url: https://github.com/vasern/vasern
 
