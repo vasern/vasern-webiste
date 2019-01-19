@@ -126,8 +126,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 td, th { padding: 0; }
 
-.posts .post__item p:not(.subtitle), .posts .post__item li { font-family: "PT Serif", serif; }
-
 .text-delta { padding-bottom: 5px; margin-bottom: 18px; display: block; text-transform: uppercase !important; font-weight: bold !important; letter-spacing: .7px !important; }
 
 .text__centered { text-align: center; }
@@ -183,12 +181,14 @@ td, th { padding: 0; }
 
 .page__split { margin: 6em 0 !important; display: flex; flex-direction: column; }
 @media (min-width: 768px) { .page__split { flex-direction: row; } }
-.page__split .head__img { opacity: .7; max-width: 460px; }
+.page__split .head__img { max-width: 460px; }
 .page__split .page__block { flex: 1; }
 .page__split .page__block:first-child { text-align: center; }
 .page__split .page__block:nth-child(2) > .block__container { width: 100%; max-width: calc(100vw - (100vw - (1000px / 2))); }
 .page__split h1 { font-weight: 600; line-height: 1em; }
 .page__split h1 small { font-size: 14px; font-weight: 500; opacity: .8; display: block; }
+
+@media (min-width: 768px) { .block__box { border: 1px solid gainsboro; padding: 2em; border-radius: 3px; box-shadow: 0 4px 8px #f1f1f1; } }
 
 .form { padding: 1.6em; margin: 1.6em 0; width: 100%; }
 .form.form__vertical { max-width: 360px; display: flex; flex-direction: column; margin: auto; }
@@ -196,6 +196,11 @@ td, th { padding: 0; }
 .form .panel { text-align: center; margin-top: 1.6em; }
 .form input { width: 100%; padding: 1.4em 1em; margin-bottom: .6em; border-radius: 4px; border: 1px solid #e0e0e0; outline: none; font-size: 14px; border-left-width: 3px; transition: 200ms ease-in; -webkit-transition: 200ms ease-in; }
 .form input:hover, .form input:focus { border-left-color: #065FD4; }
+
+.block__author { font-size: 12px; }
+.block__author a:not(.no__class) { font-size: 14px; font-weight: bold; }
+.block__author a { color: #263238; }
+.block__author a, .block__author span { margin-right: 0.8em; }
 
 .block__article { background: #F4F5F7; padding: 2em 0; }
 .block__article h2 { margin: unset; font-size: 3em !important; padding-bottom: 1em; }
@@ -317,16 +322,21 @@ td, th { padding: 0; }
 .posts .post__meta > div { flex: 1; }
 .posts .post__meta .post__date { justify-content: flex-end; align-items: flex-end; font-size: .8em; display: flex; }
 .posts .post__item { padding-bottom: 2em; }
-.posts .post__item h2, .posts .post__item .title { margin-bottom: .4em; line-height: 1.2em; font-weight: 500; }
+.posts .post__item h2, .posts .post__item .title { margin-bottom: .4em; line-height: 1.2em; }
+.posts .post__item h2 { letter-spacing: 0.2px; font-weight: 600; }
+.posts .post__item .title { font-weight: bold; }
 .posts .post__item h2:not(.list__title) { font-size: 1.6em !important; }
 .posts .post__item p .image-caption { display: block; text-align: center; font-size: .8em; opacity: .8; }
 .posts .post__item .subtitle { font-size: 1.4em; opacity: .6; }
 .posts .post__item h3 { font-weight: bold; font-size: 1.4em; }
 .posts figure, .posts p { margin-bottom: 1.6em; }
+.posts figure img { object-fit: cover; height: 100%; width: 100%; }
+.posts .figure__md { height: 320px; overflow: hidden; }
+.posts .figure__cover { margin: 1.6em 0; }
 .posts .post__panel { margin: 4em 0; text-align: center; }
 @media (min-width: 768px) { .posts .post__panel { margin: 6em; } }
 .posts .post__footer { text-align: right; margin-top: 2.4em; padding-bottom: 1.8em; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-.posts p:not(.subtitle), .posts li { font-family: -apple-system, BlinkMacSystemFont, "helvetica neue", helvetica, roboto, noto, "segoe ui", arial, sans-serif; }
+.posts p:not(.subtitle), .posts li { line-height: 1.8; font-size: 18px; }
 
 .post__author { display: flex; flex-direction: row; align-items: center; }
 .post__author img { height: 40px; width: 40px; border-radius: 50%; margin-right: 1em; }
@@ -507,6 +517,8 @@ ol { padding-inline-start: 1em; }
 @media (min-width: 768px) { .site__category { margin-left: 1em; padding-left: 1em; } }
 
 .menu__fixed { position: fixed; overflow-y: auto; }
+
+.hidden { display: none; }
 
 * { box-sizing: border-box; }
 
