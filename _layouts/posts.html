@@ -18,36 +18,29 @@
 
                 <div class="post__item">
                     <a href="{{ article.url }}"><h2 class="list__title">{{ article.title }}</h2></a>
-                    <p class="subtitle">{{ article.description }}</p>
+                    {% if article.description %}<p class="subtitle">{{ article.description }}</p>{% endif %}
                     <div class="post__meta">
+                        <div class="block__author">
+                            <a target="_blank" rel="noreferrer noopener" href="{{ author.url }}">{{ author.name }}</a>
 
-                        <!-- AUTHOR -->
-                        <div class="post__author">
-                            <img src="{{ author.avatar | prepend: "assets/media/" | absolute_url }}" alt="{{ author.name }}">
-                            <span class="post__author_desc">
-                                {% if author.url %}
-                                    <a target="_blank" rel="noreferrer noopener" href="{{ author.url }}">{{ author.name }}</a>
-                                {% else %}
-                                    <a>{{ author.name }}</a>
-                                {% endif %}
-                                <span>{{ author.desc }}</span>
-                            </span>
-                        </div> <!-- END: AUTHOR -->
-
-                        <!-- DATE -->
-                        <div class="post__date">
+                            <a class="no__class" target="_blank" rel="noreferrer noopener" href="{{ author.social_url }}">
+                                {{ author.social }}
+                            </a>
+                            <span class="deliminator">/</span>
                             <span>{{ article.published_at | date: "%A - %d %B, %Y" }}</span>
-                        </div> <!-- END: DATE -->
+                        </div>
                     </div>
                     {% if article.photo %}
-                    <p><img src="{{ article.photo }}" atl="{{ article.title }}" /></p>
+                    <figure class="figure__md">
+                        <img src="{{ article.photo }}" atl="{{ article.title }}" />
+                    </figure>
                     {% endif %}
 
 
                     {{ article.excerpt | markdownify }}
 
                     <div class="post__footer">
-                        <span class="button btn__normal btn__default">
+                        <span class="button btn__normal">
                             <a href="{{ article.url }}" title="{{ article.title }}">Read full article</a>
                         </span>
                     </div>

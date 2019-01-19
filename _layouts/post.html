@@ -25,39 +25,35 @@
                         {% assign author = site.data.authors[page.author] %}
         
                         <div class="post__item">
-                            
-                            {% if page.photo %}
-                                <p><img src="{{ page.photo }}" atl="{{ page.title }}" /></p>
-                            {% endif %}
 
                             <h1 class="title">{{ page.title }}</h1>
-                            <p class="subtitle">{{ page.description }}</p>
+                            {% if page.description %}<p class="subtitle">{{ page.description }}</p>{% endif %}
                             <div class="post__meta">
-        
-                                <!-- AUTHOR -->
-                                <div class="post__author">
-                                    <img src="{{ "assets/media/" | absolute_url }}{{ author.avatar }}" alt="{{ author.name }}">
-                                    <span class="post__author_desc">
-                                        {% if author.url %}
-                                            <a target="_blank" rel="noreferrer noopener" href="{{ author.url }}">{{ author.name }}</a>
-                                        {% else %}
-                                            <a>{{ author.name }}</a>
-                                        {% endif %}
-                                        <span>{{ author.desc }}</span>
-                                    </span>
-                                </div> <!-- END: AUTHOR -->
-        
-                                <!-- DATE -->
-                                <div class="post__date">
+
+                                <div class="block__author">
+                                    <a target="_blank" rel="noreferrer noopener" href="{{ author.url }}">{{ author.name }}</a>
+
+                                    <a class="no__class" target="_blank" rel="noreferrer noopener" href="{{ author.social_url }}">
+                                        {{ author.social }}
+                                    </a>
+                                    <span class="deliminator">/</span>
                                     <span>{{ page.published_at | date: "%A - %d %B, %Y" }}</span>
-                                </div> <!-- END: DATE -->
+                                </div>
+    
                             </div>
+
+
+                            {% if page.photo %}
+                                <figure class="figure__cover">
+                                    <img src="{{ page.photo }}" atl="{{ page.title }}" />
+                                </figure>
+                            {% endif %}
 
                             {{ content }}
 
                             <div class="post__panel">
                                 <span class="button btn__positive">
-                                    <a class="temp_class" href="{{ site.install_url | absolute_url }}">Start using Vasern</a>
+                                    <a class="temp_class" href="{{ site.install_url | absolute_url }}">Try Vasern</a>
                                 </span>
                             </div>
 

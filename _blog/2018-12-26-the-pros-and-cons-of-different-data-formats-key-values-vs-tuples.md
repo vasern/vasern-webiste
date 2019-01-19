@@ -5,7 +5,7 @@ categories: jekyll update
 published: true
 author: "hieunc"
 published_at: "2018-12-29T09:00:31.361Z"
-photo: "https://cdn-images-1.medium.com/max/1600/1*1LI9TzwDU1l6IyJFBRcULw.jpeg"
+photo: ../assets/posts/undraw_app_installation_mbdv.svg
 description: "How data is formatted under the hood"
 ---
 

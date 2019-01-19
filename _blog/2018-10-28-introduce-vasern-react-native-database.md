@@ -8,7 +8,7 @@ published_at: "2018-12-29T09:00:31.361Z"
 photo: "https://cdn-images-1.medium.com/max/2000/1*opEm8xOVsI7Wb_2F6ricmQ.png"
 ---
 
-Vasern project started 3 months ago, with a goal to be a fast data storage for React Native, be able to sync to remote servers and available for everyone.
+Vasern's goal to be a fast data storage for React Native, be able to sync to remote servers and available for everyone.
 
 I created Vasern for the following reasons:
 

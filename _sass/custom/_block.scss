@@ -189,7 +189,6 @@
     }
 
     .head__img {
-        opacity: .7;
         max-width: 460px;
     }
 
@@ -216,6 +215,16 @@
         font-weight: 500;
         opacity: .8;
         display: block;
+    }
+}
+
+.block__box {
+
+    @include tablet() {
+        border: 1px solid gainsboro;
+        padding: 2em;
+        border-radius: 3px;
+        box-shadow: 0 4px 8px #f1f1f1;
     }
 }
 
@@ -256,5 +265,22 @@
         &:hover, &:focus {
             border-left-color: $t-primary;
         }
+    }
+}
+
+.block__author {
+    font-size: 12px;
+
+    a:not(.no__class) {
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+    a {    
+        color: $text-dk;
+    }
+
+    a, span {
+        margin-right: 0.8em;
     }
 }

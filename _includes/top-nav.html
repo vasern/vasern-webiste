@@ -14,7 +14,7 @@
           <img class="page-logo" src="{{ logoURL| absolute_url }}" alt="{{ site.url }}" /> 
           <img class="page-logo-text not__mobile" height="18" src="{{ logoTextURL | absolute_url }}"" alt="{{ site.title }}">
           {% if page_category != nil %}
-            <!-- <span class="site__category">{{ page_category }}</span> -->
+            <span class="hidden site__category">{{ page_category }}</span>
           {% endif %}
         </a>
       </div>

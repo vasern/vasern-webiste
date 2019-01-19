@@ -49,7 +49,15 @@
         h2, .title {
             margin-bottom: .4em;
             line-height: 1.2em;
-            font-weight: 500;
+        }
+
+        h2 {
+            letter-spacing: 0.2px;
+            font-weight: 600;
+        }
+
+        .title {
+            font-weight: bold
         }
 
         h2:not(.list__title) {
@@ -80,6 +88,21 @@
         margin-bottom: 1.6em;
     }
 
+    figure img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    .figure__md {
+        height: 320px;
+        overflow: hidden;
+    }
+
+    .figure__cover {
+        margin: 1.6em 0;
+    }
+
     .post__panel {
         margin: 4em 0;
         text-align: center;
@@ -97,9 +120,15 @@
     }
 
     p:not(.subtitle), li {
-        font-family: $font-sans;
-        // font-size: 1.08em;
+        line-height: 1.8;
+        font-size: 18px;
     }
+
+    // .block__author {
+    //     border-top: 1px solid $line-dk;
+    //     padding-top: 1em;
+    // }
+
 }
 
 
