@@ -109,7 +109,6 @@ a {
 
 .page-header {
     position: fixed;
-    top: 0;
     width: 100%;
     z-index: 999;
     display: flex;
@@ -768,4 +767,19 @@ ol {
 
 .hidden {
     display: none !important;
+}
+
+.top__msg {
+    z-index: 999;
+    background: #fffffff7;
+    position: fixed;
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.push__2 {
+    top: 40px !important;
 }
