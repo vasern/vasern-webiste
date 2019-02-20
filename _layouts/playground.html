@@ -25,20 +25,28 @@
             </i></small>
           </p>
 
-          <form class="form form__vertical text__centered">
+          <div id="sent_message" class="page-content">
+            <div class="block__msg info">
+              Your request has sent. We'll get back to you soon!
+            </div>
+          </div>
+
+          <form id="send_form" class="form form__vertical text__centered">
 
             <div class="group">
-              <input placeholder="Name" />
+              <input id="user_name" placeholder="Name" required />
             </div>
 
             <div class="group">
-              <input placeholder="Email" type="email" />
+              <input id="user_email" placeholder="Email" type="email" required />
             </div>
 
             <div class="panel">
-              <span id="playground-submit-btn" class="button btn__positive">
+              <!-- <span id="playground-submit-btn" class="button btn__positive">
                 <a class="no__class">Signup</a>
-              </span>
+              </span> -->
+              <button class="button btn__positive" type="submit">Submit</button>
+
             </div>
 
           </form>

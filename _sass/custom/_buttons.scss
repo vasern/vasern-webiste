@@ -1,107 +1,121 @@
 .button__flex {
-    display: flex;
-    span {
-        flex: 1;
-        text-align: center;
-    }
+  display: flex;
+  span {
+    flex: 1;
+    text-align: center;
+  }
 }
 
 .button {
-    border-radius: 3px;
-    transition: ease-in .2s;
+  border-radius: 3px;
+  transition: ease-in 0.2s;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 2.4em;
+
+  a {
+    // text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    color: $t-primary;
+    padding: 1em 3em;
     display: inline-block;
-    cursor: pointer;
-    margin-bottom: 2.4em;
+
+    &::after {
+      content: "→";
+      display: inline-block;
+      margin-left: 0.5em;
+      transition: ease-in 0.2s;
+    }
+  }
+
+  &:hover a::after {
+    transform: translateX(0.2em);
+  }
+
+  @include tablet() {
+    &:not(:first-child) {
+      margin-left: 2em;
+    }
+    margin-bottom: initial;
+  }
+
+  &.btn__default {
+    border: 2px solid $t-primary;
+    a {
+      padding: calc(1em - 2px) 3em;
+    }
+  }
+
+  &.btn__normal {
+    a {
+      padding: 0.4em 2.6em;
+      font-weight: normal;
+    }
+  }
+
+  &.btn__positive {
+    background: $t-primary;
 
     a {
-        // text-transform: uppercase;
-        font-size: 16px;
-        font-weight: bold;
-        color: $t-primary;
-        padding: 1em 3em;
-        display: inline-block;
-
-        &::after {
-            content: "→";
-            display: inline-block;
-            margin-left: .5em;
-            transition: ease-in .2s;
-        }
+      color: $white;
     }
 
-    &:hover a::after {
-        transform: translateX(.2em);
+    span {
+      margin-left: 0.4em;
+      transition: ease-in 0.2s;
+      display: inline-block;
     }
+  }
 
-    @include tablet() {
-        &:not(:first-child) {
-            margin-left: 2em;
-        }
-        margin-bottom: initial;
+  &:hover {
+    a {
+      opacity: 0.8;
     }
+  }
 
-    &.btn__default {
-        border: 2px solid $t-primary;
-        a {
-            padding: calc(1em - 2px) 3em;
-        }
+  &.btn__shadow {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  &.btn__info {
+    background: #90b4d01c;
+    border: 1px solid #90b4d0a3;
+
+    a,
+    a:hover {
+      color: #155a90;
+      opacity: 1;
     }
-    
-    &.btn__normal {
-        a {
-            padding: .4em 2.6em;
-            font-weight: normal;
-        }
-    }
-
-    &.btn__positive {
-        background: $t-primary;
-
-        a {
-            color: $white;
-        }
-
-        span {
-            margin-left: .4em;
-            transition: ease-in .2s;
-            display: inline-block;
-        }
+    a:after {
+      content: "";
+      display: none;
     }
 
     &:hover {
-        a {
-            opacity: .8;
-        }
+      border-color: #155a90;
     }
+  }
 
-    &.btn__shadow {
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  &.btn__sm {
+    a {
+      padding: 0.8em 1.8em;
+      font-weight: 500;
     }
+  }
+}
 
-    &.btn__info {
-        background: #90b4d01c;
-        border: 1px solid #90b4d0a3;
-        
-        a, a:hover {
-            color: #155a90;
-            opacity: 1;
-        }
-        a:after {
-            content: "";
-            display: none;
-        }
-
-        &:hover {
-            border-color: #155a90;
-        }
-    }
-
-    &.btn__sm {
-        a {
-            padding: .8em 1.8em;
-            font-weight: 500;
-            
-        }
-        
-    }
+button {
+  &.btn__positive {
+    background: $t-primary;
+    color: $white;
+    margin-left: 0.4em;
+    transition: ease-in 0.2s;
+    display: inline-block;    
+    font-size: 16px;
+    color: $white;
+    padding: 1em 3em;
+    display: inline-block;
+    border: unset;
+  }
 }
