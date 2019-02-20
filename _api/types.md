@@ -4,8 +4,18 @@ order: 99
 
 ## Data types
 
+Data types used to define `Vasern` data schema.
+
 ```js
 import { types } from 'vasern';
+```
+
+---
+
+### primary
+
+```js
+types.primary(55)
 ```
 
 ---

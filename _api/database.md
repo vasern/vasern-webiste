@@ -31,7 +31,7 @@ var peopleCollection = VasernDB.createCollection({
 new Vasern(props)
 ```
 
-#### Props (Object) include
+#### Arguments
 
 - **_props.schemas (Array\<Object>)_**: a list of `Document` schema in any order.
 - **_props.version (int)_**: version of `Document`, `1` by default.
@@ -48,15 +48,22 @@ const VasernDB = new Vasern({
     version: 1
 })
 ```
+---
 
 ### collect
+
+Select a collection in order to perform retrieval or modify records
 
 ```js
 Vasern.collect( collectionName: string )
 => Collection
 ```
 
-Get a collection
+#### Arguments
+
+- **_collectionName(string)_**: name of collection to be selected.
+
+#### Example
 
 ```js
 var peopleCollection = VasernDB.collect('People')
@@ -66,9 +73,19 @@ var peopleCollection = VasernDB.collect('People')
 
 ### removeAllCollections
 
+Remove all records in all collections
+
 ```js
 VasernDB.removeAllCollection()
 => void
 ```
 
-Remove all records in all collections
+#### Argument
+
+_N/A_
+
+#### Example
+
+```js
+VasernDB.removeAllCollection()
+```
