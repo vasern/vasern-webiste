@@ -2,9 +2,19 @@
 
 <h3 id="insert">insert</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">)</span>
+<p>Insert a new record into selected collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span> <span class="p">)</span>
 <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
 </code></pre></div></div>
+
+<h4 id="argument">Argument</h4>
+
+<ul>
+  <li><strong><em>record(Object | Array&lt;Object&gt;)</em></strong>: A record or a list of record to be inserted</li>
+</ul>
+
+<h4 id="example">Example</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
@@ -19,21 +29,86 @@
 
 <h3 id="update">update</h3>
 
+<p>Modify an existing record from a collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="argument-1">Argument</h4>
+
+<ul>
+  <li><strong><em>id</em></strong>: existing record primary key</li>
+  <li><strong><em>changes(Object)</em></strong>: an object contains property and value changes</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">recordID</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Lisa"</span>
-<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<span class="p">}).</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
 
 <h3 id="remove">remove</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="nx">recordID</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<p>Remove an existing record from a selected collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="argument-2">Argument</h4>
+
+<ul>
+  <li><strong><em>id&lt;string&gt;</em></strong>: primary key of existing record to be remove</li>
+</ul>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="s2">`auto_generated_id_1`</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
 
 <h3 id="removeallrecords">removeAllRecords</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">removeAllRecords</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<p class="block__msg warning">
+    Use with caution! 
+</p>
+
+<p>Remove all records from a seleted collection.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">removeAllRecords</span><span class="p">()</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="arguments">Arguments</h4>
+
+<p><em>N/A</em></p>
+
+<h4 id="example-3">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">removeAllRecords</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>

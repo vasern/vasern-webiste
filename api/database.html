@@ -25,7 +25,7 @@ var peopleCollection = VasernDB.createCollection({
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Vasern</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h4 id="props-object-include">Props (Object) include</h4>
+<h4 id="arguments">Arguments</h4>
 
 <ul>
   <li><strong><em>props.schemas (Array&lt;Object&gt;)</em></strong>: a list of <code class="highlighter-rouge">Document</code> schema in any order.</li>
@@ -43,14 +43,23 @@ var peopleCollection = VasernDB.createCollection({
     <span class="na">version</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">})</span>
 </code></pre></div></div>
+<hr />
 
 <h3 id="collect">collect</h3>
+
+<p>Select a collection in order to perform retrieval or modify records</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Vasern</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span> <span class="nx">collectionName</span><span class="p">:</span> <span class="nx">string</span> <span class="p">)</span>
 <span class="o">=&gt;</span> <span class="nx">Collection</span>
 </code></pre></div></div>
 
-<p>Get a collection</p>
+<h4 id="arguments-1">Arguments</h4>
+
+<ul>
+  <li><strong><em>collectionName(string)</em></strong>: name of collection to be selected.</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s1">'People'</span><span class="p">)</span>
 </code></pre></div></div>
@@ -59,8 +68,17 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="removeallcollections">removeAllCollections</h3>
 
+<p>Remove all records in all collections</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
 <span class="o">=&gt;</span> <span class="k">void</span>
 </code></pre></div></div>
 
-<p>Remove all records in all collections</p>
+<h4 id="argument">Argument</h4>
+
+<p><em>N/A</em></p>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
+</code></pre></div></div>

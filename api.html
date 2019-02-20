@@ -138,6 +138,8 @@
       <span></span>
       <span></span>
     </span>
+
+    <span class="fs-3"><button class="js-main-nav-trigger navigation-list-toggle btn btn-outline" type="button" data-text-toggle="Hide">Menu</button></span>
   </div>
 
 
@@ -188,7 +190,7 @@ var peopleCollection = VasernDB.createCollection({
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nx">Vasern</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h4 id="props-object-include">Props (Object) include</h4>
+<h4 id="arguments">Arguments</h4>
 
 <ul>
   <li><strong><em>props.schemas (Array&lt;Object&gt;)</em></strong>: a list of <code class="highlighter-rouge">Document</code> schema in any order.</li>
@@ -206,14 +208,23 @@ var peopleCollection = VasernDB.createCollection({
     <span class="na">version</span><span class="p">:</span> <span class="mi">1</span>
 <span class="p">})</span>
 </code></pre></div></div>
+<hr />
 
 <h3 id="collect">collect</h3>
+
+<p>Select a collection in order to perform retrieval or modify records</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Vasern</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span> <span class="nx">collectionName</span><span class="p">:</span> <span class="nx">string</span> <span class="p">)</span>
 <span class="o">=&gt;</span> <span class="nx">Collection</span>
 </code></pre></div></div>
 
-<p>Get a collection</p>
+<h4 id="arguments-1">Arguments</h4>
+
+<ul>
+  <li><strong><em>collectionName(string)</em></strong>: name of collection to be selected.</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">peopleCollection</span> <span class="o">=</span> <span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s1">'People'</span><span class="p">)</span>
 </code></pre></div></div>
@@ -222,11 +233,20 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="removeallcollections">removeAllCollections</h3>
 
+<p>Remove all records in all collections</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
 <span class="o">=&gt;</span> <span class="k">void</span>
 </code></pre></div></div>
 
-<p>Remove all records in all collections</p>
+<h4 id="argument">Argument</h4>
+
+<p><em>N/A</em></p>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">removeAllCollection</span><span class="p">()</span>
+</code></pre></div></div>
 
             </div>
           
@@ -236,9 +256,19 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="insert">insert</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span><span class="p">:</span> <span class="nb">Object</span> <span class="p">)</span>
+<p>Insert a new record into selected collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="nx">record</span> <span class="p">)</span>
 <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
 </code></pre></div></div>
+
+<h4 id="argument">Argument</h4>
+
+<ul>
+  <li><strong><em>record(Object | Array&lt;Object&gt;)</em></strong>: A record or a list of record to be inserted</li>
+</ul>
+
+<h4 id="example">Example</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">insert</span><span class="p">({</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
@@ -253,23 +283,88 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="update">update</h3>
 
+<p>Modify an existing record from a collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">changes</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="argument-1">Argument</h4>
+
+<ul>
+  <li><strong><em>id</em></strong>: existing record primary key</li>
+  <li><strong><em>changes(Object)</em></strong>: an object contains property and value changes</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">recordID</span><span class="p">,</span> <span class="p">{</span>
     <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Lisa"</span>
-<span class="p">})</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<span class="p">}).</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
 
 <h3 id="remove">remove</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="nx">recordID</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<p>Remove an existing record from a selected collection</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="argument-2">Argument</h4>
+
+<ul>
+  <li><strong><em>id&lt;string&gt;</em></strong>: primary key of existing record to be remove</li>
+</ul>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">remove</span><span class="p">(</span><span class="s2">`auto_generated_id_1`</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
 <hr />
 
 <h3 id="removeallrecords">removeAllRecords</h3>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">removeAllRecords</span><span class="p">()</span> <span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+<p class="block__msg warning">
+    Use with caution! 
+</p>
+
+<p>Remove all records from a seleted collection.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">removeAllRecords</span><span class="p">()</span>
+<span class="o">=&gt;</span> <span class="nx">ResultObject</span>
+</code></pre></div></div>
+
+<h4 id="arguments">Arguments</h4>
+
+<p><em>N/A</em></p>
+
+<h4 id="example-3">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"people"</span><span class="p">).</span><span class="nx">removeAllRecords</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Insert completed</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
 </code></pre></div></div>
 
             </div>
@@ -278,27 +373,171 @@ var peopleCollection = VasernDB.createCollection({
             <div class="api__section">
               <h2 id="query-records">Query Records</h2>
 
+<h3 id="get">get</h3>
+
+<p>Retrieve a record from a collection using primary key</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments">Arguments</h4>
+
+<ul>
+  <li><strong><em>id&lt;string&gt;</em></strong>: an existing record’s primary key</li>
+</ul>
+
+<h4 id="example">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"People"</span><span class="p">).</span><span class="kd">get</span><span class="p">(</span><span class="s2">`auto_generated_id_1`</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">first</span><span class="p">();</span> <span class="c1">// item found</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<hr />
+
 <h3 id="filter">filter</h3>
 
+<p>Filter records from a collection that match with query</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Collection</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">query</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">QueryBuilder</span>
+</code></pre></div></div>
+
+<h4 id="arguments-1">Arguments</h4>
+
+<ul>
+  <li><strong><em>query&lt;Object&gt;</em></strong>: query filter</li>
+</ul>
+
+<h4 id="example-1">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"People"</span><span class="p">).</span><span class="nx">filter</span><span class="p">({</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Peter"</span><span class="p">,</span> <span class="na">yearOfBirth</span><span class="p">:</span> <span class="mi">1987</span> <span class="p">})</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span> <span class="c1">// matched records</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
+</code></pre></div></div>
 <hr />
 
 <h3 id="paging">paging</h3>
 
-<p>Note: not work with <code class="highlighter-rouge">limit</code></p>
+<p class="block__msg warning">
+    Note: not work with `limit`
+</p>
+
+<p>Record filter pagination, return records within a given size and page</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">QueryBuilder</span><span class="p">.</span><span class="nx">paging</span><span class="p">(</span><span class="nx">max</span><span class="p">,</span> <span class="nx">page</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">QueryBuilder</span>
+</code></pre></div></div>
+
+<h4 id="arguments-2">Arguments</h4>
+
+<ul>
+  <li><strong><em>max&lt;number&gt;</em></strong>: maxinum number of returned records</li>
+  <li><strong><em>max&lt;page&gt;</em></strong>: current page, start with 0</li>
+</ul>
+
+<h4 id="example-2">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"People"</span><span class="p">).</span><span class="nx">filter</span><span class="p">({</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Peter"</span><span class="p">,</span> <span class="na">yearOfBirth</span><span class="p">:</span> <span class="mi">1987</span> <span class="p">})</span>
+<span class="p">.</span><span class="nx">paging</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// return maxinum 10 records, skip the first 20 records</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span> <span class="c1">// matched records</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
+</code></pre></div></div>
 
 <hr />
 
 <h3 id="limit">limit</h3>
 
-<p>Note: not work with <code class="highlighter-rouge">paging</code></p>
+<p class="block__msg warning">
+Note: not work with `paging`
+</p>
+
+<p>Filter records with limit number of returned records</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">QueryBuilder</span><span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="nx">max</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="nx">QueryBuilder</span>
+</code></pre></div></div>
+
+<h4 id="arguments-3">Arguments</h4>
+
+<ul>
+  <li><strong><em>max&lt;number&gt;</em></strong>: maxinum number of returned records</li>
+</ul>
+
+<h4 id="example-3">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"People"</span><span class="p">).</span><span class="nx">filter</span><span class="p">({</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Peter"</span><span class="p">,</span> <span class="na">yearOfBirth</span><span class="p">:</span> <span class="mi">1987</span> <span class="p">})</span>
+<span class="p">.</span><span class="nx">limit</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span> <span class="c1">// return maxinum 14 records</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span> <span class="c1">// matched records</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
+</code></pre></div></div>
 
 <hr />
+<!-- 
+### include
 
-<h3 id="include">include</h3>
 
-<hr />
+```js
+
+```
+
+#### Arguments
+
+
+
+#### Example
+
+```js
+
+```
+
+--- -->
 
 <h3 id="sort">sort</h3>
+
+<p>Sort result of a record filter</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">QueryBuilder</span><span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="nx">propertyName1</span><span class="p">,</span> <span class="nx">propertyName2</span><span class="p">,</span> <span class="p">...</span> <span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="arguments-4">Arguments</h4>
+
+<ul>
+  <li><strong><em>propertyName&lt;string&gt;</em></strong> name of the property will be used for sorting</li>
+</ul>
+
+<h4 id="example-4">Example</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">VasernDB</span><span class="p">.</span><span class="nx">collect</span><span class="p">(</span><span class="s2">"People"</span><span class="p">).</span><span class="nx">filter</span><span class="p">({</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Peter"</span><span class="p">,</span> <span class="na">yearOfBirth</span><span class="p">:</span> <span class="mi">1987</span> <span class="p">})</span>
+<span class="p">.</span><span class="nx">sort</span><span class="p">(</span><span class="s1">'yearOfBirth'</span><span class="p">)</span> <span class="c1">// return maxinum 14 records</span>
+<span class="p">.</span><span class="nx">asPromise</span><span class="p">()</span>
+<span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">rs</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">items</span> <span class="o">=</span> <span class="nx">rs</span><span class="p">.</span><span class="nx">items</span><span class="p">;</span> <span class="c1">// matched records</span>
+<span class="p">})</span>
+<span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Handle error</span>
+<span class="p">})</span>
+</code></pre></div></div>
 
             </div>
           
@@ -308,13 +547,33 @@ var peopleCollection = VasernDB.createCollection({
 
 <h3 id="asproxy">asProxy</h3>
 
+<p class="block__msg warning">
+    Only available in JavaScript enviroment that support proxy (i.e not available on React Native for Android)
+</p>
+
+<p>Return result with a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy">proxy object</a>. Once the request is completed,
+the proxy result will also be updated</p>
+
 <hr />
 
 <h3 id="aspromise">asPromise</h3>
 
+<p>Return result with promise object</p>
+
 <hr />
 
 <h3 id="subscribe">subscribe</h3>
+
+<p>Subscribe a callback handler for any changes</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">ResultObject</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="argument">Argument</h4>
+
+<ul>
+  <li><strong><em>callback&lt;Function&gt;</em></strong> callback handler whenever ResultObject receive a change event</li>
+</ul>
 
             </div>
           
@@ -322,7 +581,16 @@ var peopleCollection = VasernDB.createCollection({
             <div class="api__section">
               <h2 id="data-types">Data types</h2>
 
+<p>Data types used to define <code class="highlighter-rouge">Vasern</code> data schema.</p>
+
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">types</span> <span class="p">}</span> <span class="k">from</span> <span class="s1">'vasern'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="primary">primary</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">types</span><span class="p">.</span><span class="nx">primary</span><span class="p">(</span><span class="mi">55</span><span class="p">)</span>
 </code></pre></div></div>
 
 <hr />
