@@ -12,6 +12,7 @@ formElement.onsubmit = function(ev) {
   var email = document.querySelector("#user_email");
   var name = document.querySelector("#user_name");
   if (email.value && name.value) {
+    ga('send', 'event', 'Playground', 'signup', 'Playground Signup');
     submitButton.innerText = "Sending...";
     fetch(VS_ENP, {
       method: "POST",
